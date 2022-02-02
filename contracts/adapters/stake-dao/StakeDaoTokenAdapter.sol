@@ -18,15 +18,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-interface Vault {
-    function token() external view returns (address);
-
-    function getPricePerFullShare() external view returns (uint256);
-}
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IVault} from "../../interfaces/IVault.sol";
 
 /**
  * @title Token adapter for Stake DAO Vaults.
@@ -34,7 +29,8 @@ interface Vault {
  * @author Elephant memory/strength
  */
 contract StakeDaoTokenAdapter is TokenAdapter {
-    address internal constant SD_VECRV = 0x478bBC744811eE8310B461514BDc29D03739084D;
+    address internal constant SD_VECRV =
+        0x478bBC744811eE8310B461514BDc29D03739084D;
     address internal constant CRV = 0xD533a949740bb3306d119CC777fa900bA034cd52;
 
     /**
@@ -76,9 +72,9 @@ contract StakeDaoTokenAdapter is TokenAdapter {
             });
         } else {
             components[0] = Component({
-                token: Vault(token).token(),
+                token: IVault(token).token(),
                 tokenType: "ERC20",
-                rate: Vault(token).getPricePerFullShare()
+                rate: IVault(token).getPricePerFullShare()
             });
         }
 

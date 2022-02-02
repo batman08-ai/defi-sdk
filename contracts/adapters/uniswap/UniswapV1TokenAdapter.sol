@@ -16,21 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev CToken contract interface.
- * Only the functions required for UniswapV1TokenAdapter contract are added.
- * The CToken contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/CToken.sol.
- */
-interface CToken {
-    function isCToken() external view returns (bool);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {ICToken} from "../../interfaces/ICToken.sol";
 
 /**
  * @dev Factory contract interface.
@@ -40,10 +29,11 @@ interface CToken {
  */
 interface Exchange {
     function name() external view returns (bytes32);
+
     function symbol() external view returns (bytes32);
+
     function decimals() external view returns (uint256);
 }
-
 
 /**
  * @dev Factory contract interface.
@@ -55,37 +45,49 @@ interface Factory {
     function getToken(address) external view returns (address);
 }
 
-
 /**
  * @title Token adapter for Uniswap V1 pool tokens.
  * @dev Implementation of TokenAdapter interface.
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract UniswapV1TokenAdapter is TokenAdapter {
-
-    address internal constant FACTORY = 0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95;
+    address internal constant FACTORY =
+        0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95;
     address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
-    address internal constant SAI_POOL = 0x09cabEC1eAd1c0Ba254B09efb3EE13841712bE14;
-    address internal constant CSAI_POOL = 0x45A2FDfED7F7a2c791fb1bdF6075b83faD821ddE;
+    address internal constant SAI_POOL =
+        0x09cabEC1eAd1c0Ba254B09efb3EE13841712bE14;
+    address internal constant CSAI_POOL =
+        0x45A2FDfED7F7a2c791fb1bdF6075b83faD821ddE;
 
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: getPoolName(token),
-            symbol: "UNI-V1",
-            decimals: uint8(Exchange(token).decimals())
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: getPoolName(token),
+                symbol: "UNI-V1",
+                decimals: uint8(Exchange(token).decimals())
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         address underlyingToken = Factory(FACTORY).getToken(token);
         uint256 totalSupply = ERC20(token).totalSupply();
         Component[] memory underlyingTokens = new Component[](2);
@@ -93,13 +95,13 @@ contract UniswapV1TokenAdapter is TokenAdapter {
         underlyingTokens[0] = Component({
             token: ETH,
             tokenType: "ERC20",
-            rate: token.balance * 1e18 / totalSupply
+            rate: (token.balance * 1e18) / totalSupply
         });
 
         underlyingTokens[1] = Component({
             token: underlyingToken,
             tokenType: getTokenType(underlyingToken),
-            rate: ERC20(underlyingToken).balanceOf(token) * 1e18 / totalSupply
+            rate: (ERC20(underlyingToken).balanceOf(token) * 1e18) / totalSupply
         });
 
         return underlyingTokens;
@@ -111,7 +113,13 @@ contract UniswapV1TokenAdapter is TokenAdapter {
         } else if (token == CSAI_POOL) {
             return "cSAI pool";
         } else {
-            return string(abi.encodePacked(getSymbol(Factory(FACTORY).getToken(token)), " pool"));
+            return
+                string(
+                    abi.encodePacked(
+                        getSymbol(Factory(FACTORY).getToken(token)),
+                        " pool"
+                    )
+                );
         }
     }
 
@@ -129,7 +137,7 @@ contract UniswapV1TokenAdapter is TokenAdapter {
 
     function getTokenType(address token) internal view returns (string memory) {
         (bool success, bytes memory returnData) = token.staticcall{gas: 2000}(
-            abi.encodeWithSelector(CToken(token).isCToken.selector)
+            abi.encodeWithSelector(ICToken(token).isCToken.selector)
         );
 
         if (success) {
@@ -146,12 +154,16 @@ contract UniswapV1TokenAdapter is TokenAdapter {
     /**
      * @dev Internal function to convert bytes32 to string and trim zeroes.
      */
-    function convertToString(bytes32 data) internal pure returns (string memory) {
+    function convertToString(bytes32 data)
+        internal
+        pure
+        returns (string memory)
+    {
         uint256 length = 0;
         bytes memory result;
 
         for (uint256 i = 0; i < 32; i++) {
-            if (data[i] != byte(0)) {
+            if (data[i] != bytes1(0)) {
                 length++;
             }
         }

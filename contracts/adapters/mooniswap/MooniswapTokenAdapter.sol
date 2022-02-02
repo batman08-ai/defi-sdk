@@ -16,21 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev CToken contract interface.
- * Only the functions required for MooniswapTokenAdapter contract are added.
- * The CToken contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/CToken.sol.
- */
-interface CToken {
-    function isCToken() external view returns (bool);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {ICToken} from "../../interfaces/ICToken.sol";
 
 /**
  * @dev Mooniswap contract interface.
@@ -39,9 +28,8 @@ interface CToken {
  * github.com/CryptoManiacsZone/mooniswap/blob/master/contracts/Mooniswap.sol
  */
 interface Mooniswap {
-    function getTokens() external view returns(address[] memory);
+    function getTokens() external view returns (address[] memory);
 }
-
 
 /**
  * @title Token adapter for Mooniswap pool tokens.
@@ -49,34 +37,47 @@ interface Mooniswap {
  * @author 1inch.exchange <info@1inch.exchange>
  */
 contract MooniswapTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         address[] memory tokens = Mooniswap(token).getTokens();
         uint256 totalSupply = ERC20(token).totalSupply();
         Component[] memory underlyingTokens = new Component[](2);
 
         for (uint256 i = 0; i < 2; i++) {
             underlyingTokens[i] = Component({
-                token: isETH(ERC20(tokens[i])) ? 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE : tokens[i],
+                token: isETH(ERC20(tokens[i]))
+                    ? 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE
+                    : tokens[i],
                 tokenType: getTokenType(tokens[i]),
-                rate: uniBalanceOf(ERC20(tokens[i]), token) * 1e18 / totalSupply
+                rate: (uniBalanceOf(ERC20(tokens[i]), token) * 1e18) /
+                    totalSupply
             });
         }
 
@@ -85,7 +86,7 @@ contract MooniswapTokenAdapter is TokenAdapter {
 
     function getTokenType(address token) internal view returns (string memory) {
         (bool success, bytes memory returnData) = token.staticcall{gas: 2000}(
-            abi.encodeWithSelector(CToken(token).isCToken.selector)
+            abi.encodeWithSelector(ICToken(token).isCToken.selector)
         );
 
         if (success) {
@@ -99,7 +100,11 @@ contract MooniswapTokenAdapter is TokenAdapter {
         }
     }
 
-    function uniBalanceOf(ERC20 token, address account) internal view returns (uint256) {
+    function uniBalanceOf(ERC20 token, address account)
+        internal
+        view
+        returns (uint256)
+    {
         if (isETH(token)) {
             return account.balance;
         } else {
@@ -107,7 +112,7 @@ contract MooniswapTokenAdapter is TokenAdapter {
         }
     }
 
-    function isETH(ERC20 token) internal pure returns(bool) {
+    function isETH(ERC20 token) internal pure returns (bool) {
         return (address(token) == address(0));
     }
 }

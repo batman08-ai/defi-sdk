@@ -16,35 +16,11 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev PieSmartPool contract interface.
- * Only the functions required for UniswapAdapter contract are added.
- * The BPool contract is available here
- * github.com/balancer-labs/balancer-core/blob/master/contracts/BPool.sol.
- */
-interface IPieSmartPool {
-    function getTokens() external view returns (address[] memory);
-    function getBPool() external view returns (address);
-}
-
-
-/**
- * @dev BPool contract interface.
- * Only the functions required for UniswapAdapter contract are added.
- * The BPool contract is available here
- * github.com/balancer-labs/balancer-core/blob/master/contracts/BPool.sol.
- */
-interface BPool {
-    function getFinalTokens() external view returns (address[] memory);
-    function getBalance(address) external view returns (uint256);
-    function getNormalizedWeight(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IBPool} from "../../interfaces/IBPool.sol";
+import {IPieSmartPool} from "../../interfaces/IPieSmartPool.sol";
 
 /**
  * @title Token adapter for Pie pool tokens.
@@ -52,30 +28,43 @@ interface BPool {
  * @author Mick de Graaf <mick@dexlab.io>
  */
 contract PieDAOPieTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given asset.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
-        address[] memory underlyingTokensAddresses = IPieSmartPool(token).getTokens();
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
+        address[] memory underlyingTokensAddresses = IPieSmartPool(token)
+            .getTokens();
         uint256 totalSupply = ERC20(token).totalSupply();
-        BPool bPool = BPool(IPieSmartPool(token).getBPool());
+        IBPool bPool = IBPool(IPieSmartPool(token).getBPool());
 
-        Component[] memory underlyingTokens = new Component[](underlyingTokensAddresses.length);
+        Component[] memory underlyingTokens = new Component[](
+            underlyingTokensAddresses.length
+        );
         address underlyingToken;
 
         for (uint256 i = 0; i < underlyingTokens.length; i++) {
@@ -83,11 +72,10 @@ contract PieDAOPieTokenAdapter is TokenAdapter {
             underlyingTokens[i] = Component({
                 token: underlyingToken,
                 tokenType: "ERC20",
-                rate: bPool.getBalance(underlyingToken) * 1e18 / totalSupply
+                rate: (bPool.getBalance(underlyingToken) * 1e18) / totalSupply
             });
         }
 
         return underlyingTokens;
     }
-
 }

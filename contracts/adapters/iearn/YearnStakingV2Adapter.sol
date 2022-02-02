@@ -16,20 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev StakingRewards contract interface.
- * Only the functions required for YearnStakingAdapter contract are added.
- * The StakingRewards contract is available here
- * github.com/Synthetixio/synthetix/blob/master/contracts/StakingRewards.sol.
- */
-interface StakingRewards {
-    function earned(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {IStakingRewards} from "../../interfaces/IStakingRewards.sol";
 
 /**
  * @title Adapter for yearn.finance protocol.
@@ -37,24 +26,30 @@ interface StakingRewards {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract YearnStakingV2Adapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
     address internal constant YFI = 0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e;
-    address internal constant CURVE_Y = 0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8;
-    address internal constant GOVERNANCE_V2 = 0xBa37B002AbaFDd8E89a1995dA52740bbC013D992;
+    address internal constant CURVE_Y =
+        0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8;
+    address internal constant GOVERNANCE_V2 =
+        0xBa37B002AbaFDd8E89a1995dA52740bbC013D992;
 
     /**
      * @return Amount of YTokens held by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         if (token == YFI) {
             return ERC20(GOVERNANCE_V2).balanceOf(account);
         } else if (token == CURVE_Y) {
-            return StakingRewards(GOVERNANCE_V2).earned(account);
+            return IStakingRewards(GOVERNANCE_V2).earned(account);
         } else {
             return 0;
         }

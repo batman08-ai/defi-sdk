@@ -18,24 +18,7 @@ pragma experimental ABIEncoderV2;
 
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
-
-/**
- * @dev StakingRewards contract interface.
- * Only the functions required for AragonStakingAdapter contract are added.
- * The StakingRewards contract is available here
- * github.com/Synthetixio/synthetix/blob/master/contracts/StakingRewards.sol.
- */
-interface StakingRewards {
-    function earned(address)
-        external
-        view
-        returns (
-            uint256 bzrxRewardsEarned,
-            uint256 stableCoinRewardsEarned,
-            uint256 bzrxRewardsVesting,
-            uint256 stableCoinRewardsVesting
-        );
-}
+import {IStakingRewardsBzx} from "../../interfaces/IStakingRewardsBzx.sol";
 
 /**
  * @title Vesting only Adapter for BZX protocol (staking).
@@ -49,9 +32,11 @@ contract BzxVestingStakingAdapter is ProtocolAdapter {
     string public constant override tokenType = "ERC20";
 
     address internal constant BZRX = 0x56d811088235F11C8920698a204A5010a788f4b3;
-    address internal constant CURVE3CRV = 0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490;
+    address internal constant CURVE3CRV =
+        0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490;
 
-    address internal constant STAKING_CONTRACT = 0xe95Ebce2B02Ee07dEF5Ed6B53289801F7Fc137A4;
+    address internal constant STAKING_CONTRACT =
+        0xe95Ebce2B02Ee07dEF5Ed6B53289801F7Fc137A4;
 
     /**
      * @return Amount of staked LP tokens for a given account.
@@ -63,8 +48,12 @@ contract BzxVestingStakingAdapter is ProtocolAdapter {
         override
         returns (uint256)
     {
-        (, , uint256 bzrxRewardsVesting, uint256 stableCoinRewardsVesting) =
-            StakingRewards(STAKING_CONTRACT).earned(account);
+        (
+            ,
+            ,
+            uint256 bzrxRewardsVesting,
+            uint256 stableCoinRewardsVesting
+        ) = IStakingRewardsBzx(STAKING_CONTRACT).earned(account);
         if (token == BZRX) {
             return bzrxRewardsVesting;
         } else if (token == CURVE3CRV) {

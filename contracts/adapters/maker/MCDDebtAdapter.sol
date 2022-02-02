@@ -16,47 +16,48 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-import { MKRAdapter } from "./MKRAdapter.sol";
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {MKRAdapter} from "./MKRAdapter.sol";
 
 /**
- * @dev Vat contract interface.
+ * @dev IVat contract interface.
  * Only the functions required for MCDDebtAdapter contract are added.
- * The Vat contract is available here
+ * The IVat contract is available here
  * github.com/makerdao/dss/blob/master/src/vat.sol.
  */
-interface Vat {
+interface IVat {
     function urns(bytes32, address) external view returns (uint256, uint256);
+
     function ilks(bytes32) external view returns (uint256, uint256);
 }
 
-
 /**
- * @dev Jug contract interface.
+ * @dev IJug contract interface.
  * Only the functions required for MCDDebtAdapter contract are added.
- * The Jug contract is available here
+ * The IJug contract is available here
  * github.com/makerdao/dss/blob/master/src/jug.sol.
  */
-interface Jug {
+interface IJug {
     function ilks(bytes32) external view returns (uint256, uint256);
+
     function base() external view returns (uint256);
 }
 
-
 /**
- * @dev DssCdpManager contract interface.
+ * @dev IDssCdpManager contract interface.
  * Only the functions required for MCDDebtAdapter contract are added.
- * The DssCdpManager contract is available here
+ * The IDssCdpManager contract is available here
  * github.com/makerdao/dss-cdp-manager/blob/master/src/DssCdpManager.sol.
  */
-interface DssCdpManager {
+interface IDssCdpManager {
     function first(address) external view returns (uint256);
+
     function list(uint256) external view returns (uint256, uint256);
+
     function urns(uint256) external view returns (address);
+
     function ilks(uint256) external view returns (bytes32);
 }
-
 
 /**
  * @title Debt adapter for MCD protocol.
@@ -64,7 +65,6 @@ interface DssCdpManager {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract MCDDebtAdapter is ProtocolAdapter, MKRAdapter {
-
     string public constant override adapterType = "Debt";
 
     string public constant override tokenType = "ERC20";
@@ -73,10 +73,15 @@ contract MCDDebtAdapter is ProtocolAdapter, MKRAdapter {
      * @return Amount of debt of the given account for the protocol.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address, address account) external view override returns (uint256) {
-        DssCdpManager manager = DssCdpManager(MANAGER);
-        Vat vat = Vat(VAT);
-        Jug jug = Jug(JUG);
+    function getBalance(address, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        IDssCdpManager manager = IDssCdpManager(MANAGER);
+        IVat vat = IVat(VAT);
+        IJug jug = IJug(JUG);
         uint256 id = manager.first(account);
         uint256 totalValue = 0;
 
@@ -88,7 +93,10 @@ contract MCDDebtAdapter is ProtocolAdapter, MKRAdapter {
             (uint256 duty, uint256 rho) = jug.ilks(ilk);
             uint256 base = jug.base();
             // solhint-disable-next-line not-rely-on-time
-            uint256 currentRate = mkrRmul(mkrRpow(mkrAdd(base, duty), now - rho, ONE), storedRate);
+            uint256 currentRate = mkrRmul(
+                mkrRpow(mkrAdd(base, duty), now - rho, ONE),
+                storedRate
+            );
 
             totalValue = totalValue + mkrRmul(art, currentRate);
         }

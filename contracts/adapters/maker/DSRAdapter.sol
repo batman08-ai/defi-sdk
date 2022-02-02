@@ -16,23 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-import { MKRAdapter } from "./MKRAdapter.sol";
-
-
-/**
- * @dev Pot contract interface.
- * Only the functions required for DSRAdapter contract are added.
- * The Pot contract is available here
- * github.com/makerdao/dss/blob/master/src/pot.sol.
- */
-interface Pot {
-    function pie(address) external view returns (uint256);
-    function dsr() external view returns (uint256);
-    function rho() external view returns (uint256);
-    function chi() external view returns (uint256);
-}
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {MKRAdapter} from "./MKRAdapter.sol";
+import {IPot} from "../../interfaces/IPot.sol";
 
 /**
  * @title Adapter for DSR protocol.
@@ -40,7 +26,6 @@ interface Pot {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract DSRAdapter is ProtocolAdapter, MKRAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
@@ -48,12 +33,20 @@ contract DSRAdapter is ProtocolAdapter, MKRAdapter {
     /**
      * @return Amount of DAI locked on the protocol by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
-     * This function repeats the calculations made in drip() function of Pot contract.
+     * This function repeats the calculations made in drip() function of IPot contract.
      */
-    function getBalance(address, address account) external view override returns (uint256) {
-        Pot pot = Pot(POT);
+    function getBalance(address, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        IPot pot = IPot(POT);
         // solhint-disable-next-line not-rely-on-time
-        uint256 chi = mkrRmul(mkrRpow(pot.dsr(), now - pot.rho(), ONE), pot.chi());
+        uint256 chi = mkrRmul(
+            mkrRpow(pot.dsr(), now - pot.rho(), ONE),
+            pot.chi()
+        );
 
         return mkrRmul(chi, pot.pie(account));
     }

@@ -17,15 +17,13 @@
 
 pragma solidity 0.6.5;
 
-import { Ownable } from "../../Ownable.sol";
-
+import {Ownable} from "../../Ownable.sol";
 
 struct PoolInfo {
-    address swap;       // stableswap contract address.
+    address swap; // stableswap contract address.
     uint256 totalCoins; // Number of coins used in stableswap contract.
-    string name;        // Pool name ("... Pool").
+    string name; // Pool name ("... Pool").
 }
-
 
 /**
  * @title Registry for Curve contracts.
@@ -35,8 +33,7 @@ struct PoolInfo {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract CurveRegistry is Ownable {
-
-    mapping (address => PoolInfo) internal poolInfo;
+    mapping(address => PoolInfo) internal poolInfo;
 
     constructor() public {
         poolInfo[0x845838DF265Dcd2c412A1Dc9e959c7d08537f8a2] = PoolInfo({
@@ -81,10 +78,7 @@ contract CurveRegistry is Ownable {
         address swap,
         uint256 totalCoins,
         string calldata name
-    )
-        external
-        onlyOwner
-    {
+    ) external onlyOwner {
         poolInfo[token] = PoolInfo({
             swap: swap,
             totalCoins: totalCoins,
@@ -92,7 +86,11 @@ contract CurveRegistry is Ownable {
         });
     }
 
-    function getSwapAndTotalCoins(address token) external view returns (address, uint256) {
+    function getSwapAndTotalCoins(address token)
+        external
+        view
+        returns (address, uint256)
+    {
         return (poolInfo[token].swap, poolInfo[token].totalCoins);
     }
 

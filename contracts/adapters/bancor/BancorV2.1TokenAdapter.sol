@@ -19,82 +19,62 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {TokenMetadata, Component} from "../../Structs.sol";
 import {TokenAdapter} from "../TokenAdapter.sol";
-
-
-/**
- * @dev SmartToken contract interface.
- * Only the functions required for BancorTokenAdapter contract are added.
- * The SmartToken contract is available here
- * github.com/bancorprotocol/contracts/blob/master/solidity/contracts/token/SmartToken.sol.
- */
-interface SmartToken {
-    function owner() external view returns (address);
-
-    function totalSupply() external view returns (uint256);
-}
-
-
-/**
- * @dev BancorConverter contract interface.
- * Only the functions required for BancorTokenAdapter contract are added.
- * The BancorConverter contract is available here
- * github.com/bancorprotocol/contracts/blob/master/solidity/contracts/converter/BancorConverter.sol.
- */
-interface BancorConverter {
-    function reserveTokens() external view returns (address[] memory);
-
-    function removeLiquidityReturn(
-        uint256,
-        address[] calldata
-    )
-        external
-        view
-        returns (uint256[] memory);
-}
-
+import {IBancorConverter} from "../../interfaces/IBancorConverter.sol";
+import {ISmartToken} from "../../interfaces/ISmartToken.sol";
 
 /**
  * @title Token adapter for SmartTokens.
  * @dev Implementation of TokenAdapter interface.
  * @author Igor Sobolev <sobolev@zerion.io>
  */
-contract BancorTokenAdapter is TokenAdapter {
-
-    address internal constant REGISTRY = 0x52Ae12ABe5D8BD778BD5397F99cA900624CfADD4;
+contract BancorV21TokenAdapter is TokenAdapter {
+    address internal constant REGISTRY =
+        0x52Ae12ABe5D8BD778BD5397F99cA900624CfADD4;
     address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
+
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token : token,
-            name : ERC20(token).name(),
-            symbol : ERC20(token).symbol(),
-            decimals : ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
-        address converter = SmartToken(token).owner();
-        address[] memory reserveTokens = BancorConverter(converter).reserveTokens();
-        uint256[] memory rates = BancorConverter(converter).removeLiquidityReturn(
-            1e18,
-            reserveTokens
-        );
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
+        address converter = ISmartToken(token).owner();
+        address[] memory reserveTokens = IBancorConverter(converter)
+            .reserveTokens();
+        uint256[] memory rates = IBancorConverter(converter)
+            .removeLiquidityReturn(1e18, reserveTokens);
 
         uint256 length = reserveTokens.length;
         Component[] memory underlyingTokens = new Component[](length);
 
         for (uint256 i = 0; i < length; i++) {
             underlyingTokens[i] = Component({
-                token : reserveTokens[i],
-                tokenType : "ERC20",
-                rate : rates[i]
+                token: reserveTokens[i],
+                tokenType: "ERC20",
+                rate: rates[i]
             });
         }
 

@@ -16,20 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev Staking contract interface.
- * Only the functions required for ZrxAdapter contract are added.
- * The Staking contract is available here
- * github.com/0xProject/0x-monorepo/blob/development/contracts/staking/contracts/src/Staking.sol.
- */
-interface Staking {
-    function getTotalStake(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {IStaking} from "../../interfaces/IStaking.sol";
 
 /**
  * @title Adapter for 0x protocol.
@@ -37,18 +26,23 @@ interface Staking {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract ZrxAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant STAKING = 0xa26e80e7Dea86279c6d778D702Cc413E6CFfA777;
+    address internal constant STAKING =
+        0xa26e80e7Dea86279c6d778D702Cc413E6CFfA777;
 
     /**
      * @return Amount of ZRX locked on the protocol by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address, address account) external view override returns (uint256) {
-        return Staking(STAKING).getTotalStake(account);
+    function getBalance(address, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        return IStaking(STAKING).getTotalStake(account);
     }
 }

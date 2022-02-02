@@ -16,18 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev Staking contract interface.
- * Only the functions required for AkroStakingAdapter contract are added.
- */
-interface Staking {
-    function totalStakedFor(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {IStaking} from "../../interfaces/IStaking.sol";
 
 /**
  * @title Adapter for Akropolis Staking protocol.
@@ -35,18 +26,23 @@ interface Staking {
  * @author Alexander Mazaletskiy <am@akropolis.io>
  */
 contract AkroStakingAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant STAKING = 0x3501Ec11d205fa249f2C42f5470e137b529b35D0;
+    address internal constant STAKING =
+        0x3501Ec11d205fa249f2C42f5470e137b529b35D0;
 
     /**
      * @return Amount of AKRO locked on the protocol by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address, address account) external view override returns (uint256) {
-        return Staking(STAKING).totalStakedFor(account);
+    function getBalance(address, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        return IStaking(STAKING).totalStakedFor(account);
     }
 }

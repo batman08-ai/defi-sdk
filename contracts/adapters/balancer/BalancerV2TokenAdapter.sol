@@ -16,40 +16,11 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev BasePool contract interface.
- * Only the functions required for BalancerV2PoolTokenAdapter contract are added.
- * The BasePool contract is available here
- * github.com/balancer-labs/balancer-core-v2/blob/master/contracts/pools/BasePool.sol.
- */
-interface BasePool {
-    function getPoolId() external view returns (bytes32);
-    function getVault() external view returns (address);
-}
-
-
-/**
- * @dev Vault contract interface.
- * Only the functions required for BalancerV2PoolTokenAdapter contract are added.
- * The Vault contract is available here
- * https://github.com/balancer-labs/balancer-core-v2/blob/master/contracts/vault/Vault.sol.
- */
-interface Vault {
-    function getPoolTokens(bytes32 poolId)
-        external
-        view
-        returns (
-            address[] memory tokens,
-            uint256[] memory balances,
-            uint256 lastChangeBlock
-        );
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IBasePool} from "../../interfaces/IBasePool.sol";
+import {IVault} from "../../interfaces/IVault.sol";
 
 /**
  * @title Token adapter for Balancer V2 pool tokens.
@@ -57,28 +28,39 @@ interface Vault {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract BalancerV2TokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
-        bytes32 poolId = BasePool(token).getPoolId();
-        address vault = BasePool(token).getVault();
-        (address[] memory tokens, uint256[] memory balances,) = Vault(vault).getPoolTokens(poolId);
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
+        bytes32 poolId = IBasePool(token).getPoolId();
+        address vault = IBasePool(token).getVault();
+        (address[] memory tokens, uint256[] memory balances, ) = IVault(vault)
+            .getPoolTokens(poolId);
         uint256 totalSupply = ERC20(token).totalSupply();
 
         Component[] memory underlyingTokens = new Component[](tokens.length);
@@ -87,7 +69,7 @@ contract BalancerV2TokenAdapter is TokenAdapter {
             underlyingTokens[i] = Component({
                 token: tokens[i],
                 tokenType: "ERC20",
-                rate: totalSupply == 0 ? 0 : balances[i] * 1e18 / totalSupply
+                rate: totalSupply == 0 ? 0 : (balances[i] * 1e18) / totalSupply
             });
         }
 

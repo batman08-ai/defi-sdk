@@ -16,52 +16,62 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
 
 /**
- * @dev SavingsContract contract interface.
+ * @dev ISavingsContract contract interface.
  * Only the functions required for MstableAssetAdapter contract are added.
- * The SavingsContract contract is available here
- * github.com/mstable/mStable-contracts/blob/master/contracts/savings/SavingsContract.sol.
+ * The ISavingsContract contract is available here
+ * github.com/mstable/mStable-contracts/blob/master/contracts/savings/SavingsContract..sol.
  */
-interface SavingsContract {
+interface ISavingsContract {
     function underlying() external view returns (address);
+
     function exchangeRate() external view returns (uint256);
 }
-
 
 /**
  * @title Token adapter for mStable protocol (Intereast Bearing mUSD).
  * @dev Implementation of TokenAdapter interface.
  */
 contract MstableSavingsTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         Component[] memory underlyingTokens = new Component[](1);
 
         underlyingTokens[0] = Component({
-            token: SavingsContract(token).underlying(),
+            token: ISavingsContract(token).underlying(),
             tokenType: "ERC20",
-            rate: SavingsContract(token).exchangeRate()
+            rate: ISavingsContract(token).exchangeRate()
         });
 
         return underlyingTokens;

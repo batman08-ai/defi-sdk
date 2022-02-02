@@ -16,20 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev CToken contract interface.
- * Only the functions required for CompoundDebtAdapter contract are added.
- * The CToken contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/CToken.sol.
- */
-interface CToken {
-    function borrowBalanceStored(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {ICToken} from "../../interfaces/ICToken.sol";
 
 /**
  * @title Debt adapter for Cozy protocol.
@@ -37,7 +26,6 @@ interface CToken {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract CozySingleDebtAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Debt";
 
     string public constant override tokenType = "ERC20";
@@ -54,11 +42,16 @@ contract CozySingleDebtAdapter is ProtocolAdapter {
      * @return Amount of debt of the given account for the protocol.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         if (token != token_) {
             return uint256(0);
         }
 
-        return CToken(cToken_).borrowBalanceStored(account);
+        return ICToken(cToken_).borrowBalanceStored(account);
     }
 }

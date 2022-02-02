@@ -16,17 +16,18 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-
 abstract contract Ownable {
-
-    modifier onlyOwner {
+    modifier onlyOwner() {
         require(msg.sender == owner, "O: onlyOwner function!");
         _;
     }
 
     address public owner;
 
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
 
     /**
      * @notice Initializes owner variable with msg.sender address.

@@ -16,50 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev CompMarketState contract interface.
- * Only the functions required for CompoundGovernanceAdapter contract are added.
- * The CompMarketState struct is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/ComptrollerStorage.sol.
- */
-struct CompMarketState {
-    uint224 index;
-    uint32 block;
-}
-
-
-/**
- * @dev Comptroller contract interface.
- * Only the functions required for CompoundGovernanceAdapter contract are added.
- * The Comptroller contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/Comptroller.sol.
- */
-interface Comptroller {
-    function getAllMarkets() external view returns (address[] memory);
-    function compBorrowState(address) external view returns (CompMarketState memory);
-    function compSupplyState(address) external view returns (CompMarketState memory);
-    function compBorrowerIndex(address, address) external view returns (uint256);
-    function compSupplierIndex(address, address) external view returns (uint256);
-    function compAccrued(address) external view returns (uint256);
-}
-
-
-/**
- * @dev CToken contract interface.
- * Only the functions required for CompoundGovernanceAdapter contract are added.
- * The CToken contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/CToken.sol.
- */
-interface CToken {
-    function borrowBalanceStored(address) external view returns (uint256);
-    function borrowIndex() external view returns (uint256);
-    function balanceOf(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {ICToken} from "../../interfaces/ICToken.sol";
+import {IComptroller} from "../../interfaces/IComptroller.sol";
 
 /**
  * @title Asset adapter for Compound Governance.
@@ -67,25 +27,31 @@ interface CToken {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract CompoundGovernanceAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant COMPTROLLER = 0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B;
-    
+    address internal constant COMPTROLLER =
+        0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B;
+
     address internal constant COMP = 0xc00e94Cb662C3520282E6f5717214004A7f26888;
 
     /**
      * @return Amount of unclaimed COMP by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         if (token != COMP) {
             return 0;
         } else {
-            uint256 balance = Comptroller(COMPTROLLER).compAccrued(account);
-            address[] memory allMarkets = Comptroller(COMPTROLLER).getAllMarkets();
+            uint256 balance = IComptroller(COMPTROLLER).compAccrued(account);
+            address[] memory allMarkets = IComptroller(COMPTROLLER)
+                .getAllMarkets();
 
             for (uint256 i = 0; i < allMarkets.length; i++) {
                 balance += borrowerComp(account, allMarkets[i]);
@@ -96,17 +62,26 @@ contract CompoundGovernanceAdapter is ProtocolAdapter {
         }
     }
 
-    function borrowerComp(address account, address cToken) internal view returns (uint256) {
-        uint256 borrowerIndex = Comptroller(COMPTROLLER).compBorrowerIndex(cToken, account);
+    function borrowerComp(address account, address cToken)
+        internal
+        view
+        returns (uint256)
+    {
+        uint256 borrowerIndex = IComptroller(COMPTROLLER).compBorrowerIndex(
+            cToken,
+            account
+        );
 
         if (borrowerIndex > 0) {
-            uint256 borrowIndex = uint256(Comptroller(COMPTROLLER).compBorrowState(cToken).index);
+            uint256 borrowIndex = uint256(
+                IComptroller(COMPTROLLER).compBorrowState(cToken).index
+            );
             require(borrowIndex >= borrowerIndex, "CGA: underflow!");
             uint256 deltaIndex = borrowIndex - borrowerIndex;
             uint256 borrowerAmount = mul(
-                CToken(cToken).borrowBalanceStored(account),
+                ICToken(cToken).borrowBalanceStored(account),
                 1e18
-            ) / CToken(cToken).borrowIndex();
+            ) / ICToken(cToken).borrowIndex();
             uint256 borrowerDelta = mul(borrowerAmount, deltaIndex) / 1e36;
             return borrowerDelta;
         } else {
@@ -114,15 +89,24 @@ contract CompoundGovernanceAdapter is ProtocolAdapter {
         }
     }
 
-    function supplierComp(address account, address cToken) internal view returns (uint256) {
-        uint256 supplierIndex = Comptroller(COMPTROLLER).compSupplierIndex(cToken, account);
-        uint256 supplyIndex = uint256(Comptroller(COMPTROLLER).compSupplyState(cToken).index);
+    function supplierComp(address account, address cToken)
+        internal
+        view
+        returns (uint256)
+    {
+        uint256 supplierIndex = IComptroller(COMPTROLLER).compSupplierIndex(
+            cToken,
+            account
+        );
+        uint256 supplyIndex = uint256(
+            IComptroller(COMPTROLLER).compSupplyState(cToken).index
+        );
         if (supplierIndex == 0 && supplyIndex > 0) {
             supplierIndex = 1e36;
         }
         require(supplyIndex >= supplierIndex, "CGA: underflow!");
         uint256 deltaIndex = supplyIndex - supplierIndex;
-        uint256 supplierAmount = CToken(cToken).balanceOf(account);
+        uint256 supplierAmount = ICToken(cToken).balanceOf(account);
         uint256 supplierDelta = mul(supplierAmount, deltaIndex) / 1e36;
 
         return supplierDelta;

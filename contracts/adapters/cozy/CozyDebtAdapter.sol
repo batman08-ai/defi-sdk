@@ -16,20 +16,9 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev CToken contract interface.
- * Only the functions required for CozyDebtAdapter contract are added.
- * The CToken contract is available here
- * github.com/compound-finance/compound-protocol/blob/master/contracts/CToken.sol.
- */
-interface CToken {
-    function borrowBalanceStored(address) external view returns (uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {ICToken} from "../../interfaces/ICToken.sol";
 
 /**
  * @dev CozyRegistry contract interface.
@@ -40,15 +29,14 @@ interface CozyRegistry {
     function getCToken(address) external view returns (address);
 }
 
-
 /**
  * @title Debt adapter for Cozy protocol.
  * @dev Implementation of ProtocolAdapter interface.
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract CozyDebtAdapter is ProtocolAdapter {
-
-    address internal constant REGISTRY = 0x64e8201a9FB27b4D1fBc75b7e3B5A03e00804165;
+    address internal constant REGISTRY =
+        0x64e8201a9FB27b4D1fBc75b7e3B5A03e00804165;
 
     string public constant override adapterType = "Debt";
 
@@ -58,13 +46,18 @@ contract CozyDebtAdapter is ProtocolAdapter {
      * @return Amount of debt of the given account for the protocol.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         address cToken = CozyRegistry(REGISTRY).getCToken(token);
 
         if (cToken == address(0)) {
             return uint256(0);
         }
 
-        return CToken(cToken).borrowBalanceStored(account);
+        return ICToken(cToken).borrowBalanceStored(account);
     }
 }

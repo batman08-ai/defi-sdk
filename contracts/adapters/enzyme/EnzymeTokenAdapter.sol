@@ -16,19 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev VaultLib contract interface.
- * Only the functions required for EnzymeTokenAdapter contract are added.
- */
-interface VaultLib {
-    function getTrackedAssets() external view returns (address[] memory);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IVaultLib} from "../../interfaces/IVaultLib.sol";
 
 /**
  * @title Token adapter for Enzyme Protocol.
@@ -36,28 +27,38 @@ interface VaultLib {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract EnzymeTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         uint256 totalSupply = ERC20(token).totalSupply();
 
-        address[] memory trackedAssets = VaultLib(token).getTrackedAssets();
+        address[] memory trackedAssets = IVaultLib(token).getTrackedAssets();
         uint256 length = trackedAssets.length;
 
         Component[] memory underlyingTokens = new Component[](length);
@@ -66,7 +67,10 @@ contract EnzymeTokenAdapter is TokenAdapter {
             underlyingTokens[i] = Component({
                 token: trackedAssets[i],
                 tokenType: "ERC20",
-                rate: totalSupply == 0 ? 0 : ERC20(trackedAssets[i]).balanceOf(token) * 1e18 / totalSupply
+                rate: totalSupply == 0
+                    ? 0
+                    : (ERC20(trackedAssets[i]).balanceOf(token) * 1e18) /
+                        totalSupply
             });
         }
 

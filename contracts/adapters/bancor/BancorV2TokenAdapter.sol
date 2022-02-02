@@ -16,29 +16,29 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-interface Ownable {
-    function owner() external view returns (address);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IOwnable} from "../../interfaces/IOwnable.sol";
 
 /**
- * @dev LiquidityPoolV2Converter contract interface.
+ * @dev ILiquidityPoolV2Converter contract interface.
  * Only the functions required for BancorV2TokenAdapter contract are added.
- * The LiquidityPoolV2Converter interface is available here
+ * The ILiquidityPoolV2Converter interface is available here
  * github.com/bancorprotocol/contracts-solidity/blob/master/solidity/contracts/converter/interfaces/IConverter.sol.
  */
-interface LiquidityPoolV2Converter {
+interface ILiquidityPoolV2Converter {
     function connectorTokenCount() external view returns (uint256);
-    function connectorTokens(uint256) external view returns (address);
-    function poolToken(address) external view returns (address);
-    function removeLiquidityReturnAndFee(address, uint256) external view returns (uint256);
-}
 
+    function connectorTokens(uint256) external view returns (address);
+
+    function poolToken(address) external view returns (address);
+
+    function removeLiquidityReturnAndFee(address, uint256)
+        external
+        view
+        returns (uint256);
+}
 
 /**
  * @title Token adapter for SmartTokens V2.
@@ -46,43 +46,57 @@ interface LiquidityPoolV2Converter {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract BancorV2TokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
-        address poolTokensContainer = Ownable(token).owner();
-        address converter = Ownable(poolTokensContainer).owner();
-        uint256 connectorTokenCount = LiquidityPoolV2Converter(converter).connectorTokenCount();
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
+        address poolTokensContainer = IOwnable(token).owner();
+        address converter = IOwnable(poolTokensContainer).owner();
+        uint256 connectorTokenCount = ILiquidityPoolV2Converter(converter)
+            .connectorTokenCount();
 
         Component[] memory underlyingTokens = new Component[](1);
 
         address underlyingToken;
         for (uint256 i = 0; i < connectorTokenCount; i++) {
-            underlyingToken = LiquidityPoolV2Converter(converter).connectorTokens(i);
+            underlyingToken = ILiquidityPoolV2Converter(converter)
+                .connectorTokens(i);
 
-            if (LiquidityPoolV2Converter(converter).poolToken(underlyingToken) == token) {
+            if (
+                ILiquidityPoolV2Converter(converter).poolToken(
+                    underlyingToken
+                ) == token
+            ) {
                 underlyingTokens[0] = Component({
                     token: underlyingToken,
                     tokenType: "ERC20",
-                    rate: LiquidityPoolV2Converter(converter).removeLiquidityReturnAndFee(
-                        token,
-                        1e18
-                    )
+                    rate: ILiquidityPoolV2Converter(converter)
+                        .removeLiquidityReturnAndFee(token, 1e18)
                 });
             }
         }

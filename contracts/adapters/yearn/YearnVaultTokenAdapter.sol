@@ -18,21 +18,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-/**
- * @dev Vault contract interface.
- * Only the functions required for YearnVaultTokenAdapter contract are added.
- * The Vault contracts is available here
- * https://github.com/iearn-finance/yearn-vaults/blob/master/contracts/Vault.vy.
- */
-interface Vault {
-    function token() external view returns (address);
-
-    function pricePerShare() external view returns (uint256);
-}
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IVault} from "../../interfaces/IVault.sol";
 
 /**
  * @title Token adapter for Yearn Token Vaults.
@@ -40,31 +29,42 @@ interface Vault {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract YearnVaultTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-        token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter abstract contract function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         Component[] memory components = new Component[](1);
 
         components[0] = Component({
-            token: Vault(token).token(),
+            token: IVault(token).token(),
             tokenType: "ERC20",
-            rate: Vault(token).pricePerShare() * (10 ** uint256(18 - ERC20(token).decimals()))
+            rate: IVault(token).pricePerShare() *
+                (10**uint256(18 - ERC20(token).decimals()))
         });
 
         return components;

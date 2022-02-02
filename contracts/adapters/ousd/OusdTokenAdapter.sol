@@ -16,20 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-/**
- * @dev VaultLib contract interface.
- * Only the functions required for OusdTokenAdapter contract are added.
- */
-interface VaultLib {
-    function calculateRedeemOutputs(uint256 _amount) external view returns (uint256[] memory);
-    function getAllAssets() external view returns (address[] memory);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {IVaultLib} from "../../interfaces/IVaultLib.sol";
 
 /**
  * @dev OUSD contract interface.
@@ -39,35 +29,45 @@ interface OusdLib {
     function vaultAddress() external view returns (address);
 }
 
-
 /**
  * @title Token adapter for OUSD Protocol.
  * @dev Implementation of TokenAdapter interface.
  * @author Domen Grabec
  */
 contract OusdTokenAdapter is TokenAdapter {
-
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         address vaultAddress = OusdLib(token).vaultAddress();
-        address[] memory trackedAssets = VaultLib(vaultAddress).getAllAssets();
-        uint256[] memory redeemOutputs = VaultLib(vaultAddress).calculateRedeemOutputs(1e18);
+        address[] memory trackedAssets = IVaultLib(vaultAddress).getAllAssets();
+        uint256[] memory redeemOutputs = IVaultLib(vaultAddress)
+            .calculateRedeemOutputs(1e18);
 
         uint256 length = trackedAssets.length;
         Component[] memory underlyingTokens = new Component[](length);

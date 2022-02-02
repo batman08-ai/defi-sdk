@@ -16,10 +16,10 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-import { Ownable } from "../../Ownable.sol";
-
+import {ERC20} from "../../ERC20.sol";
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {Ownable} from "../../Ownable.sol";
+import {IStakingRewards} from "../../interfaces/IStakingRewards.sol";
 
 struct Pool {
     address poolAddress;
@@ -27,25 +27,12 @@ struct Pool {
     address rewardToken;
 }
 
-
-/**
- * @dev StakingRewards contract interface.
- * Only the functions required for YearnStakingV1Adapter contract are added.
- * The StakingRewards contract is available here
- * github.com/Synthetixio/synthetix/blob/master/contracts/StakingRewards.sol.
- */
-interface StakingRewards {
-    function earned(address) external view returns (uint256);
-}
-
-
 /**
  * @title Adapter for Harvest protocol.
  * @dev Implementation of ProtocolAdapter interface.
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract HarvestStakingAdapter is ProtocolAdapter, Ownable {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
@@ -74,10 +61,7 @@ contract HarvestStakingAdapter is ProtocolAdapter, Ownable {
     function setIsEnabledPools(
         address[] calldata poolAddresses,
         bool[] calldata isEnabledPools
-    )
-        external
-        onlyOwner
-    {
+    ) external onlyOwner {
         uint256 length = poolAddresses.length;
         require(isEnabledPools.length == length, "HSA: inconsistent arrays");
 
@@ -90,7 +74,12 @@ contract HarvestStakingAdapter is ProtocolAdapter, Ownable {
      * @return Amount of staked tokens / rewards earned after staking for a given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         address[] memory stakingPools = stakingPools_[token];
         address[] memory rewardPools = rewardPools_[token];
 
@@ -110,11 +99,19 @@ contract HarvestStakingAdapter is ProtocolAdapter, Ownable {
         return totalBalance;
     }
 
-    function getRewardPools(address token) external view returns (address[] memory) {
+    function getRewardPools(address token)
+        external
+        view
+        returns (address[] memory)
+    {
         return rewardPools_[token];
     }
 
-    function getStakingPools(address token) external view returns (address[] memory) {
+    function getStakingPools(address token)
+        external
+        view
+        returns (address[] memory)
+    {
         return stakingPools_[token];
     }
 
@@ -126,29 +123,31 @@ contract HarvestStakingAdapter is ProtocolAdapter, Ownable {
         emit PoolAdded(pool.poolAddress, pool.stakingToken, pool.rewardToken);
     }
 
-    function setIsEnabledPool(address poolAddress, bool isEnabledPool) internal {
+    function setIsEnabledPool(address poolAddress, bool isEnabledPool)
+        internal
+    {
         isEnabledPool_[poolAddress] = isEnabledPool;
     }
 
-    function getRewardBalance(
-        address poolAddress,
-        address account
-    )
+    function getRewardBalance(address poolAddress, address account)
         internal
         view
         returns (uint256)
     {
-        return isEnabledPool_[poolAddress] ? StakingRewards(poolAddress).earned(account) : 0;
+        return
+            isEnabledPool_[poolAddress]
+                ? IStakingRewards(poolAddress).earned(account)
+                : 0;
     }
 
-    function getStakingBalance(
-        address poolAddress,
-        address account
-    )
+    function getStakingBalance(address poolAddress, address account)
         internal
         view
         returns (uint256)
     {
-        return isEnabledPool_[poolAddress] ? ERC20(poolAddress).balanceOf(account) : 0;
+        return
+            isEnabledPool_[poolAddress]
+                ? ERC20(poolAddress).balanceOf(account)
+                : 0;
     }
 }

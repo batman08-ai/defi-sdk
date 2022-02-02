@@ -16,47 +16,48 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-import { MKRAdapter } from "./MKRAdapter.sol";
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {MKRAdapter} from "./MKRAdapter.sol";
 
 /**
- * @dev Vat contract interface.
+ * @dev IVat contract interface.
  * Only the functions required for MCDAssetAdapter contract are added.
- * The Vat contract is available here
+ * The IVat contract is available here
  * github.com/makerdao/dss/blob/master/src/vat.sol.
  */
-interface Vat {
+interface IVat {
     function urns(bytes32, address) external view returns (uint256, uint256);
+
     function ilks(bytes32) external view returns (uint256, uint256);
 }
 
-
 /**
- * @dev Jug contract interface.
+ * @dev IJug contract interface.
  * Only the functions required for MCDAssetAdapter contract are added.
- * The Jug contract is available here
+ * The IJug contract is available here
  * github.com/makerdao/dss/blob/master/src/jug.sol.
  */
-interface Jug {
+interface IJug {
     function ilks(bytes32) external view returns (uint256, uint256);
+
     function base() external view returns (uint256);
 }
 
-
 /**
- * @dev DssCdpManager contract interface.
+ * @dev IDssCdpManager contract interface.
  * Only the functions required for MCDAssetAdapter contract are added.
- * The DssCdpManager contract is available here
+ * The IDssCdpManager contract is available here
  * github.com/makerdao/dss-cdp-manager/blob/master/src/DssCdpManager.sol.
  */
-interface DssCdpManager {
+interface IDssCdpManager {
     function first(address) external view returns (uint256);
+
     function list(uint256) external view returns (uint256, uint256);
+
     function urns(uint256) external view returns (address);
+
     function ilks(uint256) external view returns (bytes32);
 }
-
 
 /**
  * @title Asset adapter for MCD protocol.
@@ -64,7 +65,6 @@ interface DssCdpManager {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract MCDAssetAdapter is ProtocolAdapter, MKRAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
@@ -73,9 +73,14 @@ contract MCDAssetAdapter is ProtocolAdapter, MKRAdapter {
      * @return Amount of collateral locked on the protocol by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
-        DssCdpManager manager = DssCdpManager(MANAGER);
-        Vat vat = Vat(VAT);
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        IDssCdpManager manager = IDssCdpManager(MANAGER);
+        IVat vat = IVat(VAT);
         uint256 id = manager.first(account);
         address urn;
         bytes32 ilk;
@@ -89,7 +94,10 @@ contract MCDAssetAdapter is ProtocolAdapter, MKRAdapter {
             (, id) = manager.list(id);
             (ink, ) = vat.urns(ilk, urn);
 
-            if ((token == WETH && ilk == "ETH-A") || (token == BAT && ilk == "BAT-A")) {
+            if (
+                (token == WETH && ilk == "ETH-A") ||
+                (token == BAT && ilk == "BAT-A")
+            ) {
                 value = uint256(ink);
             } else {
                 value = 0;
