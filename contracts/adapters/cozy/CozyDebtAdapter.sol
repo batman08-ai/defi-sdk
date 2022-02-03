@@ -19,15 +19,7 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
 import {ICToken} from "../../interfaces/ICToken.sol";
-
-/**
- * @dev CozyRegistry contract interface.
- * Only the functions required for CozyDebtAdapter contract are added.
- * The CozyRegistry contract is available in this repository.
- */
-interface CozyRegistry {
-    function getCToken(address) external view returns (address);
-}
+import {ICozyRegistry as CozyRegistry} from "../../interfaces/ICozyRegistry.sol";
 
 /**
  * @title Debt adapter for Cozy protocol.

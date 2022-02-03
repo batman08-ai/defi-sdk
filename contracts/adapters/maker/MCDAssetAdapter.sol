@@ -18,46 +18,9 @@ pragma experimental ABIEncoderV2;
 
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
 import {MKRAdapter} from "./MKRAdapter.sol";
-
-/**
- * @dev IVat contract interface.
- * Only the functions required for MCDAssetAdapter contract are added.
- * The IVat contract is available here
- * github.com/makerdao/dss/blob/master/src/vat.sol.
- */
-interface IVat {
-    function urns(bytes32, address) external view returns (uint256, uint256);
-
-    function ilks(bytes32) external view returns (uint256, uint256);
-}
-
-/**
- * @dev IJug contract interface.
- * Only the functions required for MCDAssetAdapter contract are added.
- * The IJug contract is available here
- * github.com/makerdao/dss/blob/master/src/jug.sol.
- */
-interface IJug {
-    function ilks(bytes32) external view returns (uint256, uint256);
-
-    function base() external view returns (uint256);
-}
-
-/**
- * @dev IDssCdpManager contract interface.
- * Only the functions required for MCDAssetAdapter contract are added.
- * The IDssCdpManager contract is available here
- * github.com/makerdao/dss-cdp-manager/blob/master/src/DssCdpManager.sol.
- */
-interface IDssCdpManager {
-    function first(address) external view returns (uint256);
-
-    function list(uint256) external view returns (uint256, uint256);
-
-    function urns(uint256) external view returns (address);
-
-    function ilks(uint256) external view returns (bytes32);
-}
+import {IDssCdpManager} from "../../interfaces/IDssCdpManager.sol";
+import {IVat} from "../../interfaces/IVat.sol";
+import {IJug} from "../../interfaces/IJug.sol";
 
 /**
  * @title Asset adapter for MCD protocol.

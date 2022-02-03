@@ -15,8 +15,7 @@
 
 pragma solidity 0.6.5;
 
-import { Ownable } from "../../Ownable.sol";
-
+import {Ownable} from "../../Ownable.sol";
 
 /**
  * @title Registry for Cozy CTokens.
@@ -34,7 +33,10 @@ contract CozyRegistry is Ownable {
         setCTokensInternal(tokens, cTokens);
     }
 
-    function setCTokens(address[] calldata tokens, address[] calldata cTokens) external onlyOwner {
+    function setCTokens(address[] calldata tokens, address[] calldata cTokens)
+        external
+        onlyOwner
+    {
         setCTokensInternal(tokens, cTokens);
     }
 
@@ -42,7 +44,10 @@ contract CozyRegistry is Ownable {
         return tokenToCToken[token];
     }
 
-    function setCTokensInternal(address[] memory tokens, address[] memory cTokens) internal {
+    function setCTokensInternal(
+        address[] memory tokens,
+        address[] memory cTokens
+    ) internal {
         uint256 length = tokens.length;
         require(length == cTokens.length, "CR: lengths differ!");
 

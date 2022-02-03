@@ -19,24 +19,27 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
 
-
 /**
  * @title Adapter for Bancor protocol.
  * @dev Implementation of ProtocolAdapter interface.
  * @author Igor Sobolev <sobolev@zerion.io>
  */
-contract BancorAdapter is ProtocolAdapter {
+contract BancorV21Adapter is ProtocolAdapter {
+    string public constant override adapterType = "Asset";
 
-string public constant override adapterType = "Asset";
+    string public constant override tokenType = "SmartToken";
 
-string public constant override tokenType = "SmartToken";
-
-/**
- * @return Amount of SmartTokens held by the given account.
- * @param token Address of the pool!
- * @dev Implementation of ProtocolAdapter interface function.
- */
-function getBalance(address token, address account) external view override returns (uint256) {
-return ERC20(token).balanceOf(account);
-}
+    /**
+     * @return Amount of SmartTokens held by the given account.
+     * @param token Address of the pool!
+     * @dev Implementation of ProtocolAdapter interface function.
+     */
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        return ERC20(token).balanceOf(account);
+    }
 }

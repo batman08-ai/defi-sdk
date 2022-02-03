@@ -18,21 +18,8 @@ pragma experimental ABIEncoderV2;
 
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
-
-
-interface LiquidityProtectionStore {
-    function lockedBalanceRange(
-        address,
-        uint256,
-        uint256
-    )
-        external
-        view
-        returns (uint256[] memory, uint256[] memory);
-
-    function lockedBalanceCount(address) external view returns (uint256);
-}
-
+import {ILiquidityProtection as LiquidityProtection} from "../../interfaces/ILiquidityProtection.sol";
+import {ILiquidityProtectionStore as LiquidityProtectionStore} from "../../interfaces/ILiquidityProtectionStore.sol";
 
 /**
  * @title Adapter for Bancor protocol (locked tokens).
@@ -40,29 +27,38 @@ interface LiquidityProtectionStore {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract BancorLockedTokensAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant override LPS = 0xf5FAB5DBD2f3bf675dE4cB76517d4767013cfB55;
-    address internal constant override BNT = 0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
+    address internal constant override LPS =
+        0xf5FAB5DBD2f3bf675dE4cB76517d4767013cfB55;
+    address internal constant override BNT =
+        0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
 
     /**
      * @return Amount of SmartTokens locked in LiquidityProtection.
      * @param token Address of the smart token.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         if (token != BNT) {
             return 0;
         } else {
-            LiquidityProtectionStore liquidityProtectionStore = LiquidityProtectionStore(LPS);
-            (uint256[] memory lockedBalances,) = liquidityProtectionStore.lockedBalanceRange(
-                account,
-                0,
-                liquidityProtectionStore.lockedBalanceCount(account)
-            );
+            LiquidityProtectionStore liquidityProtectionStore = LiquidityProtectionStore(
+                    LPS
+                );
+            (uint256[] memory lockedBalances, ) = liquidityProtectionStore
+                .lockedBalanceRange(
+                    account,
+                    0,
+                    liquidityProtectionStore.lockedBalanceCount(account)
+                );
 
             uint256 totalAmount = 0;
             uint256 length = lockedBalances.length;

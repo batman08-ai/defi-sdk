@@ -19,18 +19,7 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {TokenMetadata, Component} from "../../Structs.sol";
 import {TokenAdapter} from "../TokenAdapter.sol";
-
-/**
- * @dev ISavingsContract contract interface.
- * Only the functions required for MstableAssetAdapter contract are added.
- * The ISavingsContract contract is available here
- * github.com/mstable/mStable-contracts/blob/master/contracts/savings/SavingsContract..sol.
- */
-interface ISavingsContract {
-    function underlying() external view returns (address);
-
-    function exchangeRate() external view returns (uint256);
-}
+import {ISavingsContract} from "../../interfaces/ISavingsContract.sol";
 
 /**
  * @title Token adapter for mStable protocol (Intereast Bearing mUSD).

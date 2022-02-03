@@ -16,20 +16,8 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev Hydro contract interface.
- * Only the functions required for DdexMarginAssetAdapter contract are added.
- * The Hydro contract is available here
- * github.com/HydroProtocol/protocol/blob/master/contracts/Hydro.sol.
- */
-interface Hydro {
-    function getAllMarketsCount() external view returns (uint256);
-    function marketBalanceOf(uint16, address, address) external view returns (uint256);
-}
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {IHydro as Hydro} from "../../interfaces/IHydro.sol";
 
 /**
  * @title Asset adapter for DDEX protocol (margin account).
@@ -37,29 +25,37 @@ interface Hydro {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract DdexMarginAssetAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant HYDRO = 0x241e82C79452F51fbfc89Fac6d912e021dB1a3B7;
-    address internal constant HYDRO_ETH = 0x000000000000000000000000000000000000000E;
+    address internal constant HYDRO =
+        0x241e82C79452F51fbfc89Fac6d912e021dB1a3B7;
+    address internal constant HYDRO_ETH =
+        0x000000000000000000000000000000000000000E;
     address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 
     /**
      * @return Amount of tokens held by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         uint256 allMarketsCount = Hydro(HYDRO).getAllMarketsCount();
         uint256 totalBalance = 0;
 
         for (uint16 i = 0; i < uint16(allMarketsCount); i++) {
-            try Hydro(HYDRO).marketBalanceOf(
-                i,
-                token == ETH ? HYDRO_ETH : token,
-                account
-            ) returns (uint256 marketBalance) {
+            try
+                Hydro(HYDRO).marketBalanceOf(
+                    i,
+                    token == ETH ? HYDRO_ETH : token,
+                    account
+                )
+            returns (uint256 marketBalance) {
                 totalBalance += marketBalance;
             } catch {} // solhint-disable-line no-empty-blocks
         }

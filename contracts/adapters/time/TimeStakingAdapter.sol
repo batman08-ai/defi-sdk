@@ -18,15 +18,7 @@ pragma experimental ABIEncoderV2;
 
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
-
-
-interface ITimeWarpPool {
-    function userStacked(address) external view returns (uint256);
-
-    function userLastReward(address) external view returns (uint32);
-
-    function getReward(address, uint32) external view returns (uint256, uint32);
-}
+import {ITimeWarpPool} from "../../interfaces/ITimeWarpPool.sol";
 
 /**
  * @title Adapter for Time protocol (staking).
@@ -34,24 +26,34 @@ interface ITimeWarpPool {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract TimeStakingAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
     address internal constant TIME = 0x485d17A6f1B8780392d53D64751824253011A260;
-    address internal constant STACKING_POOL_TIME = 0xa106dd3Bc6C42B3f28616FfAB615c7d494Eb629D;
+    address internal constant STACKING_POOL_TIME =
+        0xa106dd3Bc6C42B3f28616FfAB615c7d494Eb629D;
 
     /**
      * @return Amount of staked TIME tokens for a given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
         if (token != TIME) return 0;
         uint256 totalBalance = 0;
         totalBalance += ITimeWarpPool(STACKING_POOL_TIME).userStacked(account);
-        uint32 lastReward = ITimeWarpPool(STACKING_POOL_TIME).userLastReward(account);
-        (uint256 amount,) = ITimeWarpPool(STACKING_POOL_TIME).getReward(account, lastReward);
+        uint32 lastReward = ITimeWarpPool(STACKING_POOL_TIME).userLastReward(
+            account
+        );
+        (uint256 amount, ) = ITimeWarpPool(STACKING_POOL_TIME).getReward(
+            account,
+            lastReward
+        );
         totalBalance += amount;
         return totalBalance;
     }

@@ -19,26 +19,8 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
 import {IStakingRewards} from "../../interfaces/IStakingRewards.sol";
-
-/**
- * @dev Proxy contract interface.
- * Only the functions required for SynthetixAssetAdapter contract are added.
- * The Proxy contract is available here
- * github.com/Synthetixio/synthetix/blob/master/contracts/Proxy.sol.
- */
-interface Proxy {
-    function target() external view returns (address);
-}
-
-/**
- * @dev Synthetix contract interface.
- * Only the functions required for SynthetixAssetAdapter contract are added.
- * The Synthetix contract is available here
- * github.com/Synthetixio/synthetix/blob/master/contracts/Synthetix.sol.
- */
-interface Synthetix {
-    function collateral(address) external view returns (uint256);
-}
+import {IProxy as Proxy} from "../../interfaces/IProxy.sol";
+import {ISynthetix as Synthetix} from "../../interfaces/ISynthetix.sol";
 
 /**
  * @title Asset adapter for Synthetix protocol.

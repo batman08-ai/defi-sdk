@@ -19,15 +19,7 @@ pragma experimental ABIEncoderV2;
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
 import {ICToken} from "../../interfaces/ICToken.sol";
-
-/**
- * @dev CompoundRegistry contract interface.
- * Only the functions required for CompoundDebtAdapter contract are added.
- * The CompoundRegistry contract is available in this repository.
- */
-interface CreamRegistry {
-    function getCToken(address) external view returns (address);
-}
+import {ICreamRegistry as CreamRegistry} from "../../interfaces/ICreamRegistry.sol";
 
 /**
  * @title Debt adapter for C.R.E.A.M. protocol.

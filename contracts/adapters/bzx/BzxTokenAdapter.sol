@@ -16,26 +16,11 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ERC20 } from "../../ERC20.sol";
-import { TokenMetadata, Component } from "../../Structs.sol";
-import { TokenAdapter } from "../TokenAdapter.sol";
-
-
-interface TheProtocol {
-    function loanPoolToUnderlying(address iToken)
-        external
-        view
-        returns(address);
-}
-
-
-interface IToken {
-    function tokenPrice()
-        external
-        view
-        returns(uint256);
-}
-
+import {ERC20} from "../../ERC20.sol";
+import {TokenMetadata, Component} from "../../Structs.sol";
+import {TokenAdapter} from "../TokenAdapter.sol";
+import {ITheProtocol as TheProtocol} from "../../interfaces/ITheProtocol.sol";
+import {IToken} from "../../interfaces/IToken.sol";
 
 /**
  * @title Token adapter for iTokens.
@@ -43,27 +28,38 @@ interface IToken {
  * @author Roman Iftodi <romeo8881@gmail.com>
  */
 contract BzxTokenAdapter is TokenAdapter {
-    
-    address internal constant bZxContract = 0xD8Ee69652E4e4838f2531732a46d1f7F584F0b7f;
+    address internal constant bZxContract =
+        0xD8Ee69652E4e4838f2531732a46d1f7F584F0b7f;
 
     /**
      * @return TokenMetadata struct with ERC20-style token info.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getMetadata(address token) external view override returns (TokenMetadata memory) {
-        return TokenMetadata({
-            token: token,
-            name: ERC20(token).name(),
-            symbol: ERC20(token).symbol(),
-            decimals: ERC20(token).decimals()
-        });
+    function getMetadata(address token)
+        external
+        view
+        override
+        returns (TokenMetadata memory)
+    {
+        return
+            TokenMetadata({
+                token: token,
+                name: ERC20(token).name(),
+                symbol: ERC20(token).symbol(),
+                decimals: ERC20(token).decimals()
+            });
     }
 
     /**
      * @return Array of Component structs with underlying tokens rates for the given token.
      * @dev Implementation of TokenAdapter interface function.
      */
-    function getComponents(address token) external view override returns (Component[] memory) {
+    function getComponents(address token)
+        external
+        view
+        override
+        returns (Component[] memory)
+    {
         Component[] memory underlyingTokens = new Component[](1);
 
         underlyingTokens[0] = Component({

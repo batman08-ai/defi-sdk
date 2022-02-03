@@ -16,19 +16,8 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-/**
- * @dev Hydro contract interface.
- * Only the functions required for DdexLendingAssetAdapter contract are added.
- * The Hydro contract is available here
- * github.com/HydroProtocol/protocol/blob/master/contracts/Hydro.sol.
- */
-interface Hydro {
-    function getAmountSupplied(address, address) external view returns (uint256);
-}
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {IHydro as Hydro} from "../../interfaces/IHydro.sol";
 
 /**
  * @title Asset adapter for DDEX protocol (lending account).
@@ -36,20 +25,30 @@ interface Hydro {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract DdexLendingAssetAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-    address internal constant HYDRO = 0x241e82C79452F51fbfc89Fac6d912e021dB1a3B7;
-    address internal constant HYDRO_ETH = 0x000000000000000000000000000000000000000E;
+    address internal constant HYDRO =
+        0x241e82C79452F51fbfc89Fac6d912e021dB1a3B7;
+    address internal constant HYDRO_ETH =
+        0x000000000000000000000000000000000000000E;
     address internal constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 
     /**
      * @return Amount of tokens held by the given account.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
-        return Hydro(HYDRO).getAmountSupplied(token == ETH ? HYDRO_ETH : token, account);
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        return
+            Hydro(HYDRO).getAmountSupplied(
+                token == ETH ? HYDRO_ETH : token,
+                account
+            );
     }
 }

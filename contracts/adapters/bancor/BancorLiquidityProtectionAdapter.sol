@@ -18,33 +18,8 @@ pragma experimental ABIEncoderV2;
 
 import {ERC20} from "../../ERC20.sol";
 import {ProtocolAdapter} from "../ProtocolAdapter.sol";
-
-
-interface LiquidityProtectionStore {
-    function protectedLiquidity(
-        uint256
-    )
-        external
-        view
-        returns (address, address, address, uint256, uint256, uint256, uint256, uint256);
-
-    function protectedLiquidityIds(address) external view returns (uint256[] memory);
-
-    function owner() external view returns (address);
-}
-
-
-interface LiquidityProtection {
-    function removeLiquidityReturn(
-        uint256,
-        uint32,
-        uint256
-    )
-        external
-        view
-        returns (uint256, uint256, uint256);
-}
-
+import {ILiquidityProtectionStore as LiquidityProtectionStore} from "../../interfaces/ILiquidityProtectionStore.sol";
+import {ILiquidityProtection as LiquidityProtection} from "../../interfaces/ILiquidityProtection.sol";
 
 /**
  * @title Adapter for Bancor protocol (liquidity protection).
@@ -52,52 +27,62 @@ interface LiquidityProtection {
  * @author Igor Sobolev <sobolev@zerion.io>
  */
 contract BancorLiquidityProtectionAdapter is ProtocolAdapter {
-
     string public constant override adapterType = "Asset";
 
     string public constant override tokenType = "ERC20";
 
-address internal constant override LPS = 0xf5FAB5DBD2f3bf675dE4cB76517d4767013cfB55;
-address internal constant override BNT = 0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
+    address internal constant override LPS =
+        0xf5FAB5DBD2f3bf675dE4cB76517d4767013cfB55;
+    address internal constant override BNT =
+        0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C;
 
-/**
- * @return Amount of SmartTokens locked in LiquidityProtection.
- * @param token Address of the smart token.
- * @dev Implementation of ProtocolAdapter interface function.
- */
-function getBalance(address token, address account) external view override returns (uint256) {
-LiquidityProtectionStore liquidityProtectionStore = LiquidityProtectionStore(LPS);
-LiquidityProtection liquidityProtection = LiquidityProtection(
-liquidityProtectionStore.owner()
-);
-uint256[] memory ids = liquidityProtectionStore.protectedLiquidityIds(account);
+    /**
+     * @return Amount of SmartTokens locked in LiquidityProtection.
+     * @param token Address of the smart token.
+     * @dev Implementation of ProtocolAdapter interface function.
+     */
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        LiquidityProtectionStore liquidityProtectionStore = LiquidityProtectionStore(
+                LPS
+            );
+        LiquidityProtection liquidityProtection = LiquidityProtection(
+            liquidityProtectionStore.owner()
+        );
+        uint256[] memory ids = liquidityProtectionStore.protectedLiquidityIds(
+            account
+        );
 
-address reserveToken;
-uint256 actualAmount;
-uint256 bntAmount;
-uint256 totalAmount = 0;
-uint256 length = ids.length;
-for (uint256 i = 0; i < length; i++) {
-(,, reserveToken,,,,,) = liquidityProtectionStore.protectedLiquidity(
-ids[i]
-);
+        address reserveToken;
+        uint256 actualAmount;
+        uint256 bntAmount;
+        uint256 totalAmount = 0;
+        uint256 length = ids.length;
+        for (uint256 i = 0; i < length; i++) {
+            (, , reserveToken, , , , , ) = liquidityProtectionStore
+                .protectedLiquidity(ids[i]);
 
-(, actualAmount, bntAmount) = liquidityProtection.removeLiquidityReturn(
-ids[i],
-1000000,
-// solhint-disable-next-line not-rely-on-time
-now
-);
+            (, actualAmount, bntAmount) = liquidityProtection
+                .removeLiquidityReturn(
+                    ids[i],
+                    1000000,
+                    // solhint-disable-next-line not-rely-on-time
+                    now
+                );
 
-if (token == reserveToken) {
-totalAmount += actualAmount;
-}
+            if (token == reserveToken) {
+                totalAmount += actualAmount;
+            }
 
-if (token == BNT) {
-totalAmount += bntAmount;
-}
-}
+            if (token == BNT) {
+                totalAmount += bntAmount;
+            }
+        }
 
-return totalAmount;
+        return totalAmount;
     }
 }

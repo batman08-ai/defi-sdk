@@ -16,53 +16,8 @@
 pragma solidity 0.6.5;
 pragma experimental ABIEncoderV2;
 
-import { ProtocolAdapter } from "../ProtocolAdapter.sol";
-
-
-enum LoanType {
-    All,
-    Margin,
-    NonMargin
-}
-
-
-struct LoanReturnData {
-    bytes32 loanId;
-    uint96 endTimestamp;
-    address loanToken;
-    address collateralToken;
-    uint256 principal;
-    uint256 collateral;
-    uint256 interestOwedPerDay;
-    uint256 interestDepositRemaining;
-    uint256 startRate;
-    uint256 startMargin;
-    uint256 maintenanceMargin;
-    uint256 currentMargin;
-    uint256 maxLoanTerm;
-    uint256 maxLiquidatable;
-    uint256 maxSeizable;
-}
-
-
-interface TheProtocol {
-    function getUserLoans(
-        address user,
-        uint256 start,
-        uint256 count,
-        LoanType loanType,
-        bool isLender,
-        bool unsafeOnly)
-        external
-        view
-        returns (LoanReturnData[] memory loansData);
-
-    function getActiveLoansCount()
-        external
-        view
-        returns (uint256);
-}
-
+import {ProtocolAdapter} from "../ProtocolAdapter.sol";
+import {ITheProtocol as TheProtocol} from "../../interfaces/ITheProtocol.sol";
 
 /**
  * @title Debt adapter for bZx protocol.
@@ -70,8 +25,8 @@ interface TheProtocol {
  * @author Roman Iftodi <romeo8881@gmail.com>
  */
 contract BzxDebtAdapter is ProtocolAdapter {
-
-    address internal constant bZxContract = 0xD8Ee69652E4e4838f2531732a46d1f7F584F0b7f;
+    address internal constant bZxContract =
+        0xD8Ee69652E4e4838f2531732a46d1f7F584F0b7f;
 
     string public constant override adapterType = "Debt";
 
@@ -81,20 +36,25 @@ contract BzxDebtAdapter is ProtocolAdapter {
      * @return Amount of debt of the given account for the protocol.
      * @dev Implementation of ProtocolAdapter interface function.
      */
-    function getBalance(address token, address account) external view override returns (uint256) {
-        LoanReturnData[] memory loans;
+    function getBalance(address token, address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        TheProtocol.LoanReturnData[] memory loans;
         loans = TheProtocol(bZxContract).getUserLoans(
             account,
             0,
             TheProtocol(bZxContract).getActiveLoansCount(),
-            LoanType.All,
+            TheProtocol.LoanType.All,
             false,
             false
         );
 
         uint256 principal = 0;
         uint256 loanLenght = loans.length;
-        for(uint256 i = 0; i < loanLenght; i++) {
+        for (uint256 i = 0; i < loanLenght; i++) {
             if (loans[i].loanToken == token) {
                 principal += loans[i].principal;
             }
