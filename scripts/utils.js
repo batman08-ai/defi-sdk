@@ -1,48 +1,13 @@
-"use strict";
-//https://github.com/ethereum/web3.js/
-const Web3 = require('web3');
-const DeFiSdkAbi = require('../defi-sdk-abi');
 const BN = require('bignumber.js')
+const { defiSdk } = require('./constant');
 
-const nodeUrl = 'https://mainnet.infura.io/v3/{INFURA_PROJECT_ID}';
-const DeFiSdkAddress = '0x06FE76B2f432fdfEcAEf1a7d4f6C3d41B5861672';
-const userAddress = '0xa10d2e55f0f87756d6f99960176120c512eb3e15';
+const getNormalizedNumber = (number, decimals) => {
+    return new BN(number).dividedBy(
+        new BN(10).pow(decimals)
+    );
+}
 
-let ethereumNode = new Web3.providers.HttpProvider(nodeUrl)
-let web3 = new Web3(ethereumNode);
-
-let defiSdk = new web3.eth.Contract(DeFiSdkAbi, DeFiSdkAddress);
-
-(async () => {
-
-    function getNormalizedNumber(number, decimals) {
-        return new BN(number).dividedBy(
-            new BN(10).pow(decimals)
-        );
-    }
-
-    // List of available protocols
-    let protocols = await defiSdk.methods.getProtocolNames().call();
-    console.log('Available adapters', protocols);
-    console.log('___________________________');
-
-    // Protocol metadata
-    let protocolMetaData = await defiSdk.methods.getProtocolMetadata('SushiSwap').call();
-    console.log(protocolMetaData);
-    console.log('Protocol', {
-        'Name:': protocolMetaData.name,
-        'Description:': protocolMetaData.description,
-        'Website:': protocolMetaData.websiteURL,
-        'Logo:': protocolMetaData.iconURL,
-        'Version:': protocolMetaData.version
-    });
-    console.log('___________________________');
-
-    // User balances on selected protocols or use getBalances(userAddress) for all protocols at once
-    let balancesOnSelectedProtocols = await defiSdk.methods.getProtocolBalances(
-        userAddress, ['Aave', 'Compound', 'Synthetix', 'PoolTogether', 'SushiSwap']
-    ).call();
-
+const formatBalance = (balancesOnSelectedProtocols) => {
     balancesOnSelectedProtocols.forEach((protocol) => {
         // The top level has protocol and adapters information
         console.log('Protocol:', protocol.metadata.name);
@@ -75,18 +40,39 @@ let defiSdk = new web3.eth.Contract(DeFiSdkAbi, DeFiSdkAddress);
         })
         console.log('___________________________');
     });
+}
 
-    // Decode derivative into underlyings (Uniswap cDAI ETH as an example)
+/**
+ * 
+ * @param {Array} protocols An array of protocols
+ * @param {Array} tokenAddresses An array of token addresses
+ */
+const getBalanceByAdapters = async (protocols, tokenAddresses, userAddress) => {
+    for (const protocol of protocols) {
+        console.log('Selected protocol is', protocol);
+        const adapters = await defiSdk.methods.getProtocolAdapters(protocol).call();
+        console.log("Adapters are: ", adapters);
+        for (const adapter of adapters) {
+            const adapterBalances = await defiSdk.methods.getAdapterBalance(userAddress, adapter, tokenAddresses).call()
+            console.log("Adapter balances are: ", JSON.stringify(adapterBalances, null, 4));
+        }
+    }
+}
+
+/**
+ * 
+ * @param {String} tokenType Type of token can be { Uniswap V1 pool token OR Uniswap V2 pool token}
+ * @param {String} tokenAddress ERC20 token address
+ */
+const decodeDerivateTokensIntoUnderlyings = async (tokenType, tokenAddress) => {
     let derivative = await defiSdk.methods.getFinalFullTokenBalance(
-        "Uniswap V1 pool token",
-        '0x34E89740adF97C3A9D3f63Cc2cE4a914382c230b'
+        tokenType,
+        tokenAddress
     ).call()
-
     console.log('Token', derivative.base.metadata.name);
 
     if (derivative.underlying.length > 0) {
         let components = [];
-
         derivative.underlying.forEach((component) => {
             components.push(
                 {
@@ -101,8 +87,17 @@ let defiSdk = new web3.eth.Contract(DeFiSdkAbi, DeFiSdkAddress);
     } else {
         console.log('Is base token');
     }
+}
 
-})();
+const getAvailableProtocols = async () => defiSdk.methods.getProtocolNames().call()
 
+const getProtocolMetadata = async (protocol) => defiSdk.methods.getProtocolMetadata(protocol).call()
 
-
+module.exports = {
+    decodeDerivateTokensIntoUnderlyings,
+    getAvailableProtocols,
+    getBalanceByAdapters,
+    getNormalizedNumber,
+    getProtocolMetadata,
+    formatBalance
+}
