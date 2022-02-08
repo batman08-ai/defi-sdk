@@ -89,14 +89,20 @@ const decodeDerivateTokensIntoUnderlyings = async (tokenType, tokenAddress) => {
     }
 }
 
-const getAvailableProtocols = async () => defiSdk.methods.getProtocolNames().call()
+const getFullTokenBalance = async (tokenType, tokenAddress) => defiSdk.methods.getFullTokenBalance(tokenType, tokenAddress).call();
+
+const getAllBalances = async (userAddress) => defiSdk.methods.getBalances(userAddress).call();
+
+const getAvailableProtocols = async () => defiSdk.methods.getProtocolNames().call();
 
 const getProtocolMetadata = async (protocol) => defiSdk.methods.getProtocolMetadata(protocol).call()
 
 module.exports = {
     decodeDerivateTokensIntoUnderlyings,
+    getAllBalances,
     getAvailableProtocols,
     getBalanceByAdapters,
+    getFullTokenBalance,
     getNormalizedNumber,
     getProtocolMetadata,
     formatBalance
