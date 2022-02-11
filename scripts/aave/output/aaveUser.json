@@ -1,0 +1,65 @@
+{
+    "protocolDataProviderV2": {
+        "data": [
+            {
+                "token": {
+                    "aTokenAddress": "0x030bA81f1c18d280636F32af80b9AAd02Cf0854e",
+                    "stableDebtTokenAddress": "0x4e977830ba4bd783C0BB7F15d3e243f73FF57121",
+                    "variableDebtTokenAddress": "0xF63B34710400CAd3e044cFfDcAb00a0f32E33eCf"
+                },
+                "currentATokenBalance": "950000155604679278",
+                "currentStableDebt": "0",
+                "currentVariableDebt": "0",
+                "principalStableDebt": "0",
+                "scaledVariableDebt": "0",
+                "stableBorrowRate": "0",
+                "liquidityRate": "107185372150097825223490",
+                "stableRateLastUpdated": "0",
+                "usageAsCollateralEnabled": true
+            },
+            {
+                "token": {
+                    "aTokenAddress": "0xA361718326c15715591c299427c62086F69923D9",
+                    "stableDebtTokenAddress": "0x4A7A63909A72D268b1D8a93a9395d098688e0e5C",
+                    "variableDebtTokenAddress": "0xbA429f7011c9fa04cDd46a2Da24dc0FF0aC6099c"
+                },
+                "currentATokenBalance": "0",
+                "currentStableDebt": "0",
+                "currentVariableDebt": "1500037163813675301035",
+                "principalStableDebt": "0",
+                "scaledVariableDebt": "1345747427085134112401",
+                "stableBorrowRate": "0",
+                "liquidityRate": "5004927146802534162375290",
+                "stableRateLastUpdated": "0",
+                "usageAsCollateralEnabled": false
+            }
+        ]
+    }
+}{
+    "lendingPoolV2": {
+        "data": [
+            {
+                "totalCollateralETH": "950000155604679278",
+                "totalDebtETH": "479873363988297903",
+                "availableBorrowsETH": "303876764385562501",
+                "currentLiquidationThreshold": "8500",
+                "ltv": "8250",
+                "healthFactor": "1682735890053837046"
+            }
+        ]
+    }
+}{
+    "lendingPoolV1": {
+        "data": [],
+        "userData": {
+            "totalLiquidityETH": "0",
+            "totalCollateralETH": "0",
+            "totalBorrowsETH": "0",
+            "totalFeesETH": "0",
+            "availableBorrowsETH": "0",
+            "currentLiquidationThreshold": "0",
+            "ltv": "0",
+            "healthFactor": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+        }
+    }
+}

@@ -1,7 +1,8 @@
 const userAddress = '0x6cEDc25F604c7679cA159BB16f94928EbeF1473F';
-const aaveProtocolDataProvider = require("./utils/aaveDataProviderV2");
-const aaveLendingPoolV2 = require("./utils/aaveLendingPoolV2");
-const aaveLendingPoolV1 = require("./utils/aaveLendingPoolV1");
+const aaveProtocolDataProvider = require("../utils/aaveDataProviderV2");
+const aaveLendingPoolV2 = require("../utils/aaveLendingPoolV2");
+const aaveLendingPoolV1 = require("../utils/aaveLendingPoolV1");
+
 const fs = require('fs');
 
 let data = '';
@@ -31,12 +32,8 @@ const detailsByProtocolDataProviderV2 = async () => {
 
     const reserveTokenTokenAddrResult = await Promise.all(reserveTokenAddresses);
     // console.log("Reserve token address result: ", reserveTokenTokenAddrResult);
-    // Fetches User Debt/Asset Details for BUSD
-    const index = reserveTokenTokenAddrResult.findIndex((reserve) => reserve.aTokenAddress == '0xA361718326c15715591c299427c62086F69923D9');
-    console.log("Found at index: ", index);
 
     const userReserveDataResult = await Promise.all(userReserveData);
-    console.log("User reserve data result is: ", userReserveDataResult[index]);
     // console.log("User reserve data result: ", userReserveDataResult);
 
     data += JSON.stringify({
@@ -76,17 +73,6 @@ const detailsByLendingPoolV2 = async () => {
             userInformation: userAccountData
         }
     })
-
-    console.log("Reserve data:", reserveData[index]);
-
-
-    fs.writeFile('./output/aave.json', data, err => {
-        if (err) {
-            console.log("Error writing to file", err);
-        } else {
-            console.log("Written to file successfully");
-        }
-    })
 }
 
 const detailsByLendingPoolV1 = async () => {
@@ -114,11 +100,25 @@ const detailsByLendingPoolV1 = async () => {
         },
         userInformation: userAccountData
     });
+}
 
+const writeDataToFile = () => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(`${__dirname}/output/aave.json`, data, err => {
+            if (err) {
+                console.log("Error writing to file", err);
+                reject(err);
+            } else {
+                console.log("Written to file successfully");
+                resolve("Written to file successfully");
+            }
+        })
+    })
 }
 
 (async () => {
     await detailsByLendingPoolV1();
     await detailsByProtocolDataProviderV2();
     await detailsByLendingPoolV2();
+    await writeDataToFile();
 })()

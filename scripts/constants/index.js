@@ -1,5 +1,6 @@
+require('dotenv').config();
 const Web3 = require('web3');
-const nodeUrl = 'https://mainnet.infura.io/v3/{INFURA_API_KEY}';
+const nodeUrl = `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`;
 const ethereumNode = new Web3.providers.HttpProvider(nodeUrl)
 const web3 = new Web3(ethereumNode);
 
