@@ -118,7 +118,7 @@ const detailsByLendingPoolV1 = async () => {
 }
 
 (async () => {
-    // await detailsByLendingPoolV1();
+    await detailsByLendingPoolV1();
     await detailsByProtocolDataProviderV2();
-    // await detailsByLendingPoolV2();
+    await detailsByLendingPoolV2();
 })()
