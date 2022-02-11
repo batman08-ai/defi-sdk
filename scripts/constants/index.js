@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const nodeUrl = 'https://mainnet.infura.io/v3/275873b9f431493a89153738398abf2a';
+const nodeUrl = 'https://mainnet.infura.io/v3/{INFURA_API_KEY}';
 const ethereumNode = new Web3.providers.HttpProvider(nodeUrl)
 const web3 = new Web3(ethereumNode);
 
