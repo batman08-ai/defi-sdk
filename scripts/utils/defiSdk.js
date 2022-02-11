@@ -1,5 +1,5 @@
 const BN = require('bignumber.js')
-const { defiSdk } = require('./constant');
+const { defiSdk } = require('../constants');
 
 const getNormalizedNumber = (number, decimals) => {
     return new BN(number).dividedBy(
@@ -15,11 +15,14 @@ const formatBalance = (balancesOnSelectedProtocols) => {
             // Each adapter could either be an Asset or Debt on the protocol
             console.log('Balance type:', protocolBalances.metadata.adapterType);
             protocolBalances.balances.forEach((balance) => {
+                console.log("Balance is: ", balance);
                 // Inside of each adapter there is an info about the asset and the balance
                 let position = {
                     'Token': balance.base.metadata.name,
                     'Balance': getNormalizedNumber(balance.base.amount, balance.base.metadata.decimals).toString()
                 };
+
+                decodeDerivateTokensIntoUnderlyings(`${balance.base.metadata.name} pool token`, balance.base.metadata.token)
 
                 // If asset is a derivative then there will be underlying assets
                 if (balance.underlying.length > 0) {
