@@ -7,13 +7,13 @@
                     "stableDebtTokenAddress": "0x4e977830ba4bd783C0BB7F15d3e243f73FF57121",
                     "variableDebtTokenAddress": "0xF63B34710400CAd3e044cFfDcAb00a0f32E33eCf"
                 },
-                "currentATokenBalance": "950000155604679278",
+                "currentATokenBalance": "950000996598045381",
                 "currentStableDebt": "0",
                 "currentVariableDebt": "0",
                 "principalStableDebt": "0",
                 "scaledVariableDebt": "0",
                 "stableBorrowRate": "0",
-                "liquidityRate": "107185372150097825223490",
+                "liquidityRate": "97997496888868940097857",
                 "stableRateLastUpdated": "0",
                 "usageAsCollateralEnabled": true
             },
@@ -25,11 +25,11 @@
                 },
                 "currentATokenBalance": "0",
                 "currentStableDebt": "0",
-                "currentVariableDebt": "1500037163813675301035",
+                "currentVariableDebt": "1500219059456595133622",
                 "principalStableDebt": "0",
                 "scaledVariableDebt": "1345747427085134112401",
                 "stableBorrowRate": "0",
-                "liquidityRate": "5004927146802534162375290",
+                "liquidityRate": "6182292895008268766998343",
                 "stableRateLastUpdated": "0",
                 "usageAsCollateralEnabled": false
             }
@@ -39,12 +39,12 @@
     "lendingPoolV2": {
         "data": [
             {
-                "totalCollateralETH": "950000155604679278",
-                "totalDebtETH": "479873363988297903",
-                "availableBorrowsETH": "303876764385562501",
+                "totalCollateralETH": "950000996598045381",
+                "totalDebtETH": "522741984902910159",
+                "availableBorrowsETH": "261008837290477280",
                 "currentLiquidationThreshold": "8500",
                 "ltv": "8250",
-                "healthFactor": "1682735890053837046"
+                "healthFactor": "1544740752473358741"
             }
         ]
     }

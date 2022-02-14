@@ -1,9 +1,11 @@
 const fs = require('fs');
 
 const userAddress = '0x6cEDc25F604c7679cA159BB16f94928EbeF1473F';
-const aaveProtocolDataProvider = require("../utils/aaveDataProviderV2");
-const aaveLendingPoolV2 = require("../utils/aaveLendingPoolV2");
-const aaveLendingPoolV1 = require("../utils/aaveLendingPoolV1");
+const aaveProtocolDataProvider = require("./utils/aaveDataProviderV2");
+const aaveLendingPoolV2 = require("./utils/aaveLendingPoolV2");
+const aaveLendingPoolV1 = require("./utils/aaveLendingPoolV1");
+const AaveTokenAddresses = require("./utils/aaveTokenAddresses.json");
+//TODO @Ashish & Amrutanshoo will fetch the token name, symbol, decimals from these AaveTokenAddresses JSON object
 let data = '';
 
 const detailsByProtocolDataProviderV2 = async () => {
@@ -31,6 +33,7 @@ const detailsByProtocolDataProviderV2 = async () => {
 
         if (currentATokenBalance != 0 || currentStableDebt != 0 || currentVariableDebt != 0 || principalStableDebt != 0 || scaledVariableDebt != 0 || stableBorrowRate != 0) {
             const { aTokenAddress, stableDebtTokenAddress, variableDebtTokenAddress } = reserveTokenTokenAddrResult[index];
+            //TODO @Ashish OR @Amrutanshoo use aTokenAddress and do the traversing of AaveTokenAddresses JSON to get token name, symbol, decimals and other required token metadata
             userDataProtocolDataProviderV2.push({
                 token: {
                     aTokenAddress,

@@ -1,7 +1,7 @@
 const userAddress = '0x6cEDc25F604c7679cA159BB16f94928EbeF1473F';
-const aaveProtocolDataProvider = require("../utils/aaveDataProviderV2");
-const aaveLendingPoolV2 = require("../utils/aaveLendingPoolV2");
-const aaveLendingPoolV1 = require("../utils/aaveLendingPoolV1");
+const aaveProtocolDataProvider = require("./utils/aaveDataProviderV2");
+const aaveLendingPoolV2 = require("./utils/aaveLendingPoolV2");
+const aaveLendingPoolV1 = require("./utils/aaveLendingPoolV1");
 
 const fs = require('fs');
 

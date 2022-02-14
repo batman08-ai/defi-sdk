@@ -1,4 +1,4 @@
-const { aaveLendingPoolV2 } = require("../constants");
+const { aaveLendingPoolV2 } = require("../../constants");
 
 const getReservesList = async () => aaveLendingPoolV2.methods.getReservesList().call();
 const getReserveData = async (asset) => aaveLendingPoolV2.methods.getReserveData(asset).call();

@@ -1,4 +1,4 @@
-const { aaveProtocolDataProvider } = require("../constants");
+const { aaveProtocolDataProvider } = require("../../constants");
 
 const getAllATokens = async () => aaveProtocolDataProvider.methods.getAllATokens().call();
 const getAllReservesTokens = async () => aaveProtocolDataProvider.methods.getAllReservesTokens().call();
