@@ -22,10 +22,12 @@ const aaveProtocolDataProvider = new web3.eth.Contract(AaveProtocolDataProviderA
 const aaveLendingPoolV2 = new web3.eth.Contract(AaveLendingPoolV2Abi, AaveLendingPoolV2Address);
 const aaveLendingPoolV1 = new web3.eth.Contract(AaveLendingPoolV1Abi, AaveLendingPoolV1Address);
 
+const getBancorContracts = (abi, contractAddress) => new web3.eth.Contract(abi, contractAddress);
 
 module.exports = {
     aaveProtocolDataProvider,
     aaveLendingPoolV1,
     aaveLendingPoolV2,
-    defiSdk
+    defiSdk,
+    getBancorContracts
 };

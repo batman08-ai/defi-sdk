@@ -1,0 +1,128 @@
+{
+    "userData": [
+        {
+            "reserves": [
+                {
+                    "dlt_id": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
+                    "symbol": "BNT",
+                    "name": "Bancor Network Token",
+                    "balance": {
+                        "usd": "48064376.236318106581278857"
+                    },
+                    "weight": 500000,
+                    "price": {
+                        "usd": "2.204000"
+                    },
+                    "price_24h_ago": {
+                        "usd": "2.230000"
+                    },
+                    "volume_24h": {
+                        "usd": "6603142.977482",
+                        "base": "3001537.822475745819950376"
+                    }
+                },
+                {
+                    "dlt_id": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+                    "symbol": "ETH",
+                    "name": "",
+                    "balance": {
+                        "usd": "40788.931991175435310950"
+                    },
+                    "weight": 500000,
+                    "price": {
+                        "usd": "2604.193498"
+                    },
+                    "price_24h_ago": {
+                        "usd": "2631.468150"
+                    },
+                    "volume_24h": {
+                        "usd": "6603142.977482",
+                        "base": "2548.875366168443933861"
+                    }
+                }
+            ],
+            "dlt_type": "ethereum",
+            "dlt_id": "0xb1CD6e4153B2a390Cf00A6556b0fC1458C4A5533",
+            "type": 3,
+            "version": 46,
+            "symbol": "ETHBNT",
+            "name": "ETH/BNT",
+            "supply": "56042901.121997053939421075",
+            "converter_dlt_id": "0x4c9a2bD661D640dA3634A4988a9Bd2Bc0f18e5a9",
+            "isWhitelisted": true,
+            "conversion_fee": "0.1",
+            "liquidity": {
+                "usd": "211668403.293838"
+            },
+            "volume_24h": {
+                "usd": "6603142.977482"
+            },
+            "fees_24h": {
+                "usd": "6609.752548"
+            },
+            "tokenBalance": "103135596000000000"
+        },
+        {
+            "reserves": [
+                {
+                    "dlt_id": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+                    "symbol": "DAI",
+                    "name": "Dai Stablecoin",
+                    "balance": {
+                        "usd": "12170350.800093113723174587"
+                    },
+                    "weight": 500000,
+                    "price": {
+                        "usd": "1.017663"
+                    },
+                    "price_24h_ago": {
+                        "usd": "0.984205"
+                    },
+                    "volume_24h": {
+                        "usd": "658684.712038",
+                        "base": "667327.164572731238495056"
+                    }
+                },
+                {
+                    "dlt_id": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
+                    "symbol": "BNT",
+                    "name": "Bancor Network Token",
+                    "balance": {
+                        "usd": "5604219.306094844975008868"
+                    },
+                    "weight": 500000,
+                    "price": {
+                        "usd": "2.204000"
+                    },
+                    "price_24h_ago": {
+                        "usd": "2.230000"
+                    },
+                    "volume_24h": {
+                        "usd": "658684.712038",
+                        "base": "300408.172783355531651044"
+                    }
+                }
+            ],
+            "dlt_type": "ethereum",
+            "dlt_id": "0xE5Df055773Bf9710053923599504831c7DBdD697",
+            "type": 3,
+            "version": 46,
+            "symbol": "DAIBNT",
+            "name": "DAI/BNT",
+            "supply": "34933019.857387864520238558",
+            "converter_dlt_id": "0xaB7aE646063087317C1f410c6661364779f87d73",
+            "isWhitelisted": true,
+            "conversion_fee": "1.5",
+            "liquidity": {
+                "usd": "24680981.824041"
+            },
+            "volume_24h": {
+                "usd": "658684.712038"
+            },
+            "fees_24h": {
+                "usd": "10030.731639"
+            },
+            "tokenBalance": "42755336673984297037"
+        }
+    ]
+}
