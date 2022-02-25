@@ -1,2085 +1,2188 @@
 {
-    "poolCoins": {
-        "0": {
-            "coins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6"
-            ]
+    "0": {
+        "coins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "1556216128151598705063451348",
+            "1537222783064950",
+            "818568996862293"
+        ],
+        "underlyingBalances": [
+            "1556216128151598705063451348",
+            "1537222783064950",
+            "818568996862293"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "2829",
+            "futureA": "5000",
+            "fee": "3000000",
+            "adminFee": "5000000000",
+            "futureFee": "3000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "1": {
-            "coins": [
-                "0x028171bCA77440897B824Ca71D1c56caC55b68A3",
-                "0xBcca60bB61934080951369a648Fb03DF4F96263C",
-                "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "2": {
-            "coins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0xE95A203B1a91a908F9B9CE46459d101078c2c3cb"
-            ],
-            "underlyingCoins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18"
-            ]
-        },
-        "3": {
-            "coins": [
-                "0xC2cB1040220768554cf699b0d863A3cd4324ce32",
-                "0x26EA744E5B887E5205727f55dFBE8685e3b21951",
-                "0xE6354ed5bC4b393a5Aad09f21c46E101e692d447",
-                "0x04bC0Ab673d88aE9dbC9DA2380cB6B79C4BCa9aE"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ]
-        },
-        "4": {
-            "coins": [
-                "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643",
-                "0x39AA39c021dfbaE8faC545936693aC917d5E7563"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-            ],
-            "decimals": [
-                "8",
-                "8"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6"
-            ]
-        },
-        "5": {
-            "coins": [
-                "0xdB25f211AB05b1c97D595516F45794528a807ad8",
-                "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
-            ],
-            "underlyingCoins": [
-                "0xdB25f211AB05b1c97D595516F45794528a807ad8",
-                "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
-            ],
-            "decimals": [
-                "2",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "2",
-                "18"
-            ]
-        },
-        "6": {
-            "coins": [
-                "0x0316EB71485b0Ab14103307bf65a021042c6d380",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
-            ],
-            "underlyingCoins": [
-                "0x0316EB71485b0Ab14103307bf65a021042c6d380",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
-            ],
-            "decimals": [
-                "18",
-                "8"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "8"
-            ]
-        },
-        "7": {
-            "coins": [
-                "0x8e595470Ed749b85C6F7669de83EAe304C2ec68F",
-                "0x76Eb2FE28b36B3ee97F3Adae0C69606eeDB2A37c",
-                "0x48759F220ED983dB51fA7A8C0D2AAb8f3ce4166a"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "8",
-                "8",
-                "8"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "8": {
-            "coins": [
-                "0x514910771AF9Ca656af840dff83E8264EcF986CA",
-                "0xbBC455cb4F1B9e4bFC4B73970d360c8f032EfEE6"
-            ],
-            "underlyingCoins": [
-                "0x514910771AF9Ca656af840dff83E8264EcF986CA",
-                "0xbBC455cb4F1B9e4bFC4B73970d360c8f032EfEE6"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18"
-            ]
-        },
-        "9": {
-            "coins": [
-                "0x99d1Fa417f94dcD62BfE781a1213c092a47041Bc",
-                "0x9777d7E2b60bB01759D0E2f8be2095df444cb07E",
-                "0x1bE5d71F2dA660BFdee8012dDc58D024448A0A59",
-                "0x8E870D67F660D95d5be530380D0eC0bd388289E1"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x8E870D67F660D95d5be530380D0eC0bd388289E1"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ]
-        },
-        "10": {
-            "coins": [
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
-            ],
-            "underlyingCoins": [
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
-            ],
-            "decimals": [
-                "8",
-                "8"
-            ],
-            "underlyingDecimals": [
-                "8"
-            ]
-        },
-        "11": {
-            "coins": [
-                "0x028171bCA77440897B824Ca71D1c56caC55b68A3",
-                "0x6C5024Cd4F8A59110119C56f8933403A539555EB"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18"
-            ]
-        },
-        "12": {
-            "coins": [
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "underlyingCoins": [
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "decimals": [
-                "8",
-                "8",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "8",
-                "18"
-            ]
-        },
-        "13": {
-            "coins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb"
-            ],
-            "underlyingCoins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18"
-            ]
-        },
-        "14": {
-            "coins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
-            ],
-            "underlyingCoins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18"
-            ]
-        },
-        "15": {
-            "coins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ]
-        },
-        "16": {
-            "coins": [
-                "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643",
-                "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "8",
-                "8",
-                "6"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "17": {
-            "coins": [
-                "0x16de59092dAE5CcF4A1E6439D611fd0653f0Bd01",
-                "0xd6aD7a6750A7593E092a9B218d66C0A814a3436e",
-                "0x83f798e925BcD4017Eb265844FDDAbb448f1707D",
-                "0x73a052500105205d34Daf004eAb301916DA8190f"
-            ],
-            "underlyingCoins": [
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x0000000000085d4780B73119b644AE5ecd22b376"
-            ],
-            "decimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "6",
-                "6",
-                "18"
-            ]
-        },
-        "18": {
-            "coins": [
-                "0x5BC25f649fc4e26069dDF4cF4010F9f706c23831",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x5BC25f649fc4e26069dDF4cF4010F9f706c23831",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "19": {
-            "coins": [
-                "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "2",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "2",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "20": {
-            "coins": [
-                "0xdF574c24545E5FfEcb9a659c229253D4111d87e1",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0xdF574c24545E5FfEcb9a659c229253D4111d87e1",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "8",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "8",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "21": {
-            "coins": [
-                "0x0E2EC54fC0B509F445631Bf4b91AB8168230C752",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x0E2EC54fC0B509F445631Bf4b91AB8168230C752",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "22": {
-            "coins": [
-                "0xe2f2a5C287993345a840Db3B0845fbC70f5935a5",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0xe2f2a5C287993345a840Db3B0845fbC70f5935a5",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "23": {
-            "coins": [
-                "0x196f4727526eA7FB1e17b2071B3d8eAA38486988",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x196f4727526eA7FB1e17b2071B3d8eAA38486988",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "24": {
-            "coins": [
-                "0x1c48f86ae57291F7686349F12601910BD8D470bb",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x1c48f86ae57291F7686349F12601910BD8D470bb",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "25": {
-            "coins": [
-                "0x674C6Ad92Fd080e4004b2312b45f796a192D27a0",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x674C6Ad92Fd080e4004b2312b45f796a192D27a0",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "26": {
-            "coins": [
-                "0x1456688345527bE1f37E9e627DA0837D6f08C925",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x1456688345527bE1f37E9e627DA0837D6f08C925",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "27": {
-            "coins": [
-                "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "28": {
-            "coins": [
-                "0x9BE89D2a4cd102D8Fecc6BF9dA793be995C22541",
-                "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
-            ],
-            "underlyingCoins": [
-                "0x9BE89D2a4cd102D8Fecc6BF9dA793be995C22541",
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "decimals": [
-                "8",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "8",
-                "8",
-                "8",
-                "18"
-            ]
-        },
-        "29": {
-            "coins": [
-                "0x8064d9Ae6cDf087b1bcd5BDf3531bD5d8C537a68",
-                "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
-            ],
-            "underlyingCoins": [
-                "0x8064d9Ae6cDf087b1bcd5BDf3531bD5d8C537a68",
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "8",
-                "8",
-                "18"
-            ]
-        },
-        "30": {
-            "coins": [
-                "0x5228a22e72ccC52d415EcFd199F99D0665E7733b",
-                "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
-            ],
-            "underlyingCoins": [
-                "0x5228a22e72ccC52d415EcFd199F99D0665E7733b",
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "8",
-                "8",
-                "18"
-            ]
-        },
-        "31": {
-            "coins": [
-                "0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa",
-                "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
-            ],
-            "underlyingCoins": [
-                "0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa",
-                "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "8",
-                "8",
-                "18"
-            ]
-        },
-        "32": {
-            "coins": [
-                "0x0000000000085d4780B73119b644AE5ecd22b376",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x0000000000085d4780B73119b644AE5ecd22b376",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "33": {
-            "coins": [
-                "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "34": {
-            "coins": [
-                "0x853d955aCEf822Db058eb8505911ED77F175b99e",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x853d955aCEf822Db058eb8505911ED77F175b99e",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "35": {
-            "coins": [
-                "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "36": {
-            "coins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-                "0x9559Aaa82d9649C7A7b220E7c461d2E74c9a3593"
-            ],
-            "underlyingCoins": [
-                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18"
-            ]
-        },
-        "37": {
-            "coins": [
-                "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "38": {
-            "coins": [
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
-            ],
-            "underlyingCoins": [
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-                "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-                "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
-            ],
-            "decimals": [
-                "6",
-                "8",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "6",
-                "8",
-                "18"
-            ]
-        },
-        "39": {
-            "coins": [
-                "0x03ab458634910AaD20eF5f1C8ee96F1D6ac54919",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x03ab458634910AaD20eF5f1C8ee96F1D6ac54919",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "40": {
-            "coins": [
-                "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
-                "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
-            ],
-            "underlyingCoins": [
-                "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
-                "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-                "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-            ],
-            "decimals": [
-                "18",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "18",
-                "18",
-                "6",
-                "6"
-            ]
-        },
-        "41": {
-            "coins": [
-                "0xC581b735A1688071A1746c968e0798D642EDE491",
-                "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
-            ],
-            "underlyingCoins": [
-                "0xC581b735A1688071A1746c968e0798D642EDE491",
-                "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
-            ],
-            "decimals": [
-                "6",
-                "18"
-            ],
-            "underlyingDecimals": [
-                "6",
-                "18"
-            ]
+        "liquidityProviderDetails": {
+            "address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
+            "name": "Curve.fi DAI/USDC/USDT",
+            "symbol": "3Crv",
+            "decimals": "18",
+            "userBalance": "0"
         }
     },
-    "poolMetadata": {
-        "0": {
-            "balances": [
-                "1616951442531923048509489490",
-                "1630040883802508",
-                "836297722083662"
-            ],
-            "underlyingBalances": [
-                "1616951442531923048509489490",
-                "1630040883802508",
-                "836297722083662"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "2505",
-                "futureA": "5000",
-                "fee": "3000000",
-                "adminFee": "5000000000",
-                "futureFee": "3000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490",
-                "name": "Curve.fi DAI/USDC/USDT",
-                "symbol": "3Crv",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+    "1": {
+        "coins": [
+            "0x028171bCA77440897B824Ca71D1c56caC55b68A3",
+            "0xBcca60bB61934080951369a648Fb03DF4F96263C",
+            "0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "15732219690730423906605507",
+            "16032586126131",
+            "8997220221158"
+        ],
+        "underlyingBalances": [
+            "15732219690730423906605507",
+            "16032586126131000000000000",
+            "8997220221158000000000000"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "2000",
+            "futureA": "200000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "1": {
-            "balances": [
-                "15731508793431362921136605",
-                "16032104589967",
-                "8996882321549"
-            ],
-            "underlyingBalances": [
-                "15731508793431362921136605",
-                "16032104589967000000000000",
-                "8996882321549000000000000"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "2000",
-                "futureA": "200000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xFd2a8fA60Abd58Efe3EeE34dd494cD491dC14900",
-                "name": "Curve.fi aDAI/aUSDC/aUSDT",
-                "symbol": "a3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xFd2a8fA60Abd58Efe3EeE34dd494cD491dC14900",
+            "name": "Curve.fi aDAI/aUSDC/aUSDT",
+            "symbol": "a3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "2": {
+        "coins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0xE95A203B1a91a908F9B9CE46459d101078c2c3cb"
+        ],
+        "underlyingCoins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18"
+        ],
+        "balances": [
+            "3936641564334407557080",
+            "12032955099201271175521"
+        ],
+        "underlyingBalances": [
+            "3936641564334407557080",
+            "12032955099201271175521"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1065349231798958122"
+        ],
+        "poolParameters": {
+            "A": "10",
+            "futureA": "1000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "2": {
-            "balances": [
-                "3881288947074408766210",
-                "12094367429473149326800"
-            ],
-            "underlyingBalances": [
-                "3881288947074408766210",
-                "12094367429473149326800"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1065349231798958122"
-            ],
-            "poolParameters": {
-                "A": "10",
-                "futureA": "1000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xaA17A236F2bAdc98DDc0Cf999AbB47D47Fc0A6Cf",
-                "name": "Curve.fi ETH/aETH",
-                "symbol": "ankrCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xaA17A236F2bAdc98DDc0Cf999AbB47D47Fc0A6Cf",
+            "name": "Curve.fi ETH/aETH",
+            "symbol": "ankrCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "3": {
+        "coins": [
+            "0xC2cB1040220768554cf699b0d863A3cd4324ce32",
+            "0x26EA744E5B887E5205727f55dFBE8685e3b21951",
+            "0xE6354ed5bC4b393a5Aad09f21c46E101e692d447",
+            "0x04bC0Ab673d88aE9dbC9DA2380cB6B79C4BCa9aE"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x4Fabb145d64652a948d72533023f6E7A623C7C53"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "balances": [
+            "4506067146225893864849110",
+            "5210645394420",
+            "4265388530200",
+            "5374687255853061234409317"
+        ],
+        "underlyingBalances": [
+            "5056562324861831205485147",
+            "5654720367024873292666751",
+            "4584953906930386546912409",
+            "5765965849794424309920447"
+        ],
+        "rates": [
+            "1122167548944984239",
+            "1085224562216501309",
+            "1074920578622037611",
+            "1072800253357115567"
+        ],
+        "poolParameters": {
+            "A": "500",
+            "futureA": "500",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "3": {
-            "balances": [
-                "4506067517650463516007678",
-                "5234676241735",
-                "4265388881785",
-                "5374687698875953755397397"
-            ],
-            "underlyingBalances": [
-                "5056417025046809916915858",
-                "5680709378485752861096876",
-                "4584915624936499941378116",
-                "5765908119175549096662418"
-            ],
-            "rates": [
-                "1122135211077198314",
-                "1085207397010463063",
-                "1074911514988941146",
-                "1072789423724361514"
-            ],
-            "poolParameters": {
-                "A": "500",
-                "futureA": "500",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x3B3Ac5386837Dc563660FB6a0937DFAa5924333B",
-                "name": "Curve.fi yDAI/yUSDC/yUSDT/yBUSD",
-                "symbol": "yDAI+yUSDC+yUSDT+yBUSD",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x3B3Ac5386837Dc563660FB6a0937DFAa5924333B",
+            "name": "Curve.fi yDAI/yUSDC/yUSDT/yBUSD",
+            "symbol": "yDAI+yUSDC+yUSDT+yBUSD",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "4": {
+        "coins": [
+            "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643",
+            "0x39AA39c021dfbaE8faC545936693aC917d5E7563"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+        ],
+        "decimals": [
+            "8",
+            "8"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6"
+        ],
+        "balances": [
+            "305013269082477243",
+            "230391111884397878"
+        ],
+        "underlyingBalances": [
+            "66741624055568659636680998",
+            "51861748419332857041953322"
+        ],
+        "rates": [
+            "218815477294928314556919206",
+            "225103077957952"
+        ],
+        "poolParameters": {
+            "A": "4500",
+            "futureA": "4500",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "4": {
-            "balances": [
-                "305047710656118880",
-                "243632656341116903"
-            ],
-            "underlyingBalances": [
-                "66745945568199251494644745",
-                "54840896295630840622195678"
-            ],
-            "rates": [
-                "218804938495152775645279294",
-                "225096656249754"
-            ],
-            "poolParameters": {
-                "A": "4500",
-                "futureA": "4500",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x845838DF265Dcd2c412A1Dc9e959c7d08537f8a2",
-                "name": "Curve.fi cDAI/cUSDC",
-                "symbol": "cDAI+cUSDC",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x845838DF265Dcd2c412A1Dc9e959c7d08537f8a2",
+            "name": "Curve.fi cDAI/cUSDC",
+            "symbol": "cDAI+cUSDC",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "5": {
+        "coins": [
+            "0xdB25f211AB05b1c97D595516F45794528a807ad8",
+            "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
+        ],
+        "underlyingCoins": [
+            "0xdB25f211AB05b1c97D595516F45794528a807ad8",
+            "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
+        ],
+        "decimals": [
+            "2",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "2",
+            "18"
+        ],
+        "balances": [
+            "1394978164",
+            "26406342702895203510955084"
+        ],
+        "underlyingBalances": [
+            "1394978164",
+            "26406342702895203510955084"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "5": {
-            "balances": [
-                "1382058522",
-                "26784360084538598394070821"
-            ],
-            "underlyingBalances": [
-                "1382058522",
-                "26784360084538598394070821"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x194eBd173F6cDacE046C53eACcE9B953F28411d1",
-                "name": "Curve.fi EURS/sEUR",
-                "symbol": "eursCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x194eBd173F6cDacE046C53eACcE9B953F28411d1",
+            "name": "Curve.fi EURS/sEUR",
+            "symbol": "eursCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "6": {
+        "coins": [
+            "0x0316EB71485b0Ab14103307bf65a021042c6d380",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+        ],
+        "underlyingCoins": [
+            "0x0316EB71485b0Ab14103307bf65a021042c6d380",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+        ],
+        "decimals": [
+            "18",
+            "8"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "8"
+        ],
+        "balances": [
+            "2458666260182011369957",
+            "220705643606"
+        ],
+        "underlyingBalances": [
+            "2458666260182011369957",
+            "220705643606"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "300",
+            "futureA": "300",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "6": {
-            "balances": [
-                "2481870763155617781555",
-                "218385643606"
-            ],
-            "underlyingBalances": [
-                "2481870763155617781555",
-                "218385643606"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "300",
-                "futureA": "300",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xb19059ebb43466C323583928285a49f558E572Fd",
-                "name": "Curve.fi hBTC/wBTC",
-                "symbol": "hCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xb19059ebb43466C323583928285a49f558E572Fd",
+            "name": "Curve.fi hBTC/wBTC",
+            "symbol": "hCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "7": {
+        "coins": [
+            "0x8e595470Ed749b85C6F7669de83EAe304C2ec68F",
+            "0x76Eb2FE28b36B3ee97F3Adae0C69606eeDB2A37c",
+            "0x48759F220ED983dB51fA7A8C0D2AAb8f3ce4166a"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "8",
+            "8",
+            "8"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "2134376023784903350",
+            "2324906787329174128",
+            "1059252101039523808"
+        ],
+        "underlyingBalances": [
+            "224319051338279374665503480",
+            "242532622205060297947129103",
+            "111309850556966304701728611"
+        ],
+        "rates": [
+            "105098187403966847922748661",
+            "104319288638526",
+            "105083436178913"
+        ],
+        "poolParameters": {
+            "A": "6000",
+            "futureA": "600000",
+            "fee": "6000000",
+            "adminFee": "5000000000",
+            "futureFee": "6000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "7": {
-            "balances": [
-                "2133776880489951774",
-                "2593158500597010402",
-                "1061276839815210006"
-            ],
-            "underlyingBalances": [
-                "224255860657795684959231101",
-                "270514980426172844277883781",
-                "111521365218109187212674199"
-            ],
-            "rates": [
-                "105098083453928272260115077",
-                "104318721884487",
-                "105082256612259"
-            ],
-            "poolParameters": {
-                "A": "6000",
-                "futureA": "600000",
-                "fee": "6000000",
-                "adminFee": "5000000000",
-                "futureFee": "6000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x5282a4eF67D9C33135340fB3289cc1711c13638C",
-                "name": "Curve.fi cyDAI/cyUSDC/cyUSDT",
-                "symbol": "ib3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x5282a4eF67D9C33135340fB3289cc1711c13638C",
+            "name": "Curve.fi cyDAI/cyUSDC/cyUSDT",
+            "symbol": "ib3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "8": {
+        "coins": [
+            "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+            "0xbBC455cb4F1B9e4bFC4B73970d360c8f032EfEE6"
+        ],
+        "underlyingCoins": [
+            "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+            "0xbBC455cb4F1B9e4bFC4B73970d360c8f032EfEE6"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18"
+        ],
+        "balances": [
+            "319941538820080701943314",
+            "545734356533175431432193"
+        ],
+        "underlyingBalances": [
+            "319941538820080701943314",
+            "545734356533175431432193"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "8": {
-            "balances": [
-                "256361478414658623229182",
-                "612359233206346373742167"
-            ],
-            "underlyingBalances": [
-                "256361478414658623229182",
-                "612359233206346373742167"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xcee60cFa923170e4f8204AE08B4fA6A3F5656F3a",
-                "name": "Curve.fi LINK/sLINK",
-                "symbol": "linkCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xcee60cFa923170e4f8204AE08B4fA6A3F5656F3a",
+            "name": "Curve.fi LINK/sLINK",
+            "symbol": "linkCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "9": {
+        "coins": [
+            "0x99d1Fa417f94dcD62BfE781a1213c092a47041Bc",
+            "0x9777d7E2b60bB01759D0E2f8be2095df444cb07E",
+            "0x1bE5d71F2dA660BFdee8012dDc58D024448A0A59",
+            "0x8E870D67F660D95d5be530380D0eC0bd388289E1"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x8E870D67F660D95d5be530380D0eC0bd388289E1"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "balances": [
+            "1132319326934143382574747",
+            "1198165345359",
+            "1117053626439",
+            "1262162155874107860292027"
+        ],
+        "underlyingBalances": [
+            "1154409478718645814989833",
+            "1227367061117068706771088",
+            "1132807826582377708291689",
+            "1262162155874107860292027"
+        ],
+        "rates": [
+            "1019508765115149548",
+            "1024372025005713339",
+            "1014103351683839695",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "200",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "9": {
-            "balances": [
-                "1130264762492198242385517",
-                "1140568906594",
-                "1064747242396",
-                "1376352344812666431546403"
-            ],
-            "underlyingBalances": [
-                "1152314389885464890693234",
-                "1168357246300166101163357",
-                "1079761288843356934664939",
-                "1376352344812666431546403"
-            ],
-            "rates": [
-                "1019508373723558287",
-                "1024363578163066402",
-                "1014101042810470996",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "200",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xD905e2eaeBe188fc92179b6350807D8bd91Db0D8",
-                "name": "Curve.fi DAI/USDC/USDT/PAX",
-                "symbol": "ypaxCrv",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xD905e2eaeBe188fc92179b6350807D8bd91Db0D8",
+            "name": "Curve.fi DAI/USDC/USDT/PAX",
+            "symbol": "ypaxCrv",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "10": {
+        "coins": [
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+        ],
+        "underlyingCoins": [
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+        ],
+        "decimals": [
+            "8",
+            "8"
+        ],
+        "underlyingDecimals": [
+            "8"
+        ],
+        "balances": [
+            "894219018365",
+            "512481789225"
+        ],
+        "underlyingBalances": [
+            "894219018365",
+            "512481789225"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "1000",
+            "futureA": "1000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "10": {
-            "balances": [
-                "892188379425",
-                "599107203043"
-            ],
-            "underlyingBalances": [
-                "892188379425",
-                "599107203043"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "1000",
-                "futureA": "1000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x49849C98ae39Fff122806C06791Fa73784FB3675",
-                "name": "Curve.fi renBTC/wBTC",
-                "symbol": "crvRenWBTC",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x49849C98ae39Fff122806C06791Fa73784FB3675",
+            "name": "Curve.fi renBTC/wBTC",
+            "symbol": "crvRenWBTC",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "11": {
+        "coins": [
+            "0x028171bCA77440897B824Ca71D1c56caC55b68A3",
+            "0x6C5024Cd4F8A59110119C56f8933403A539555EB"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18"
+        ],
+        "balances": [
+            "20261486065365962551314493",
+            "19049125721676145422347925"
+        ],
+        "underlyingBalances": [
+            "20261486065365962551314493",
+            "19049125721676145422347925"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "11": {
-            "balances": [
-                "20365797080559695084014447",
-                "19146946612216964591793028"
-            ],
-            "underlyingBalances": [
-                "20365797080559695084014447",
-                "19146946612216964591793028"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x02d341CcB60fAaf662bC0554d13778015d1b285C",
-                "name": "Curve.fi aDAI/aSUSD",
-                "symbol": "saCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x02d341CcB60fAaf662bC0554d13778015d1b285C",
+            "name": "Curve.fi aDAI/aSUSD",
+            "symbol": "saCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "12": {
+        "coins": [
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "underlyingCoins": [
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "decimals": [
+            "8",
+            "8",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "8",
+            "18"
+        ],
+        "balances": [
+            "309567017532",
+            "283200300177",
+            "2839831026752212899452"
+        ],
+        "underlyingBalances": [
+            "309567017532",
+            "283200300177",
+            "2839831026752212899452"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "100",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "12": {
-            "balances": [
-                "315937911638",
-                "277931691041",
-                "2839831030993959189343"
-            ],
-            "underlyingBalances": [
-                "315937911638",
-                "277931691041",
-                "2839831030993959189343"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "100",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3",
-                "name": "Curve.fi renBTC/wBTC/sBTC",
-                "symbol": "crvRenWSBTC",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3",
+            "name": "Curve.fi renBTC/wBTC/sBTC",
+            "symbol": "crvRenWSBTC",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "13": {
+        "coins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb"
+        ],
+        "underlyingCoins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18"
+        ],
+        "balances": [
+            "18404408086007179096369",
+            "16070013469284251960645"
+        ],
+        "underlyingBalances": [
+            "18404408086007179096369",
+            "16070013469284251960645"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "256",
+            "futureA": "25600",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "13": {
-            "balances": [
-                "19590173826836471662324",
-                "15036420627577646292234"
-            ],
-            "underlyingBalances": [
-                "19590173826836471662324",
-                "15036420627577646292234"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "256",
-                "futureA": "25600",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xA3D87FffcE63B53E0d54fAa1cc983B7eB0b74A9c",
-                "name": "Curve.fi ETH/sETH",
-                "symbol": "eCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xA3D87FffcE63B53E0d54fAa1cc983B7eB0b74A9c",
+            "name": "Curve.fi ETH/sETH",
+            "symbol": "eCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "14": {
+        "coins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        ],
+        "underlyingCoins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18"
+        ],
+        "balances": [
+            "573091720530491663995419",
+            "600170552935344876455192"
+        ],
+        "underlyingBalances": [
+            "573091720530491663995419",
+            "600170552935344876455192"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "50",
+            "futureA": "5000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "14": {
-            "balances": [
-                "569921033406282088273892",
-                "602175529590895020627050"
-            ],
-            "underlyingBalances": [
-                "569921033406282088273892",
-                "602175529590895020627050"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "50",
-                "futureA": "5000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x06325440D014e39736583c165C2963BA99fAf14E",
-                "name": "Curve.fi ETH/stETH",
-                "symbol": "steCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x06325440D014e39736583c165C2963BA99fAf14E",
+            "name": "Curve.fi ETH/stETH",
+            "symbol": "steCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "15": {
+        "coins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "balances": [
+            "29361505094545477262342948",
+            "29376113640106",
+            "28622686740711",
+            "29665922940362147176574503"
+        ],
+        "underlyingBalances": [
+            "29361505094545477262342948",
+            "29376113640106",
+            "28622686740711",
+            "29665922940362147176574503"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "100",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "15": {
-            "balances": [
-                "32236295311602232778769265",
-                "33380867639649",
-                "31224046554061",
-                "29294258171705886181748332"
-            ],
-            "underlyingBalances": [
-                "32236295311602232778769265",
-                "33380867639649",
-                "31224046554061",
-                "29294258171705886181748332"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1000000000000000000",
-                "1000000000000000000",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "100",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xC25a3A3b969415c80451098fa907EC722572917F",
-                "name": "Curve.fi DAI/USDC/USDT/sUSD",
-                "symbol": "crvPlain3andSUSD",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xC25a3A3b969415c80451098fa907EC722572917F",
+            "name": "Curve.fi DAI/USDC/USDT/sUSD",
+            "symbol": "crvPlain3andSUSD",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "16": {
+        "coins": [
+            "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643",
+            "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "8",
+            "8",
+            "6"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "4599456500817666",
+            "3626642161441601",
+            "518787620134"
+        ],
+        "underlyingBalances": [
+            "1006432269523678429480701",
+            "816368313192584252743581",
+            "518787620134"
+        ],
+        "rates": [
+            "218815477294928314556919206",
+            "225103077957952",
+            "1000000000000000000"
+        ],
+        "poolParameters": {
+            "A": "2000",
+            "futureA": "2000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "16": {
-            "balances": [
-                "4599457180165701",
-                "3647169940085869",
-                "518787696759"
-            ],
-            "underlyingBalances": [
-                "1006383945417245026252194",
-                "820965758287944745970270",
-                "518787696759"
-            ],
-            "rates": [
-                "218804938495152775645279294",
-                "225096656249754",
-                "1000000000000000000"
-            ],
-            "poolParameters": {
-                "A": "2000",
-                "futureA": "2000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x9fC689CCaDa600B6DF723D9E47D84d76664a1F23",
-                "name": "Curve.fi cDAI/cUSDC/USDT",
-                "symbol": "cDAI+cUSDC+USDT",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x9fC689CCaDa600B6DF723D9E47D84d76664a1F23",
+            "name": "Curve.fi cDAI/cUSDC/USDT",
+            "symbol": "cDAI+cUSDC+USDT",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "17": {
+        "coins": [
+            "0x16de59092dAE5CcF4A1E6439D611fd0653f0Bd01",
+            "0xd6aD7a6750A7593E092a9B218d66C0A814a3436e",
+            "0x83f798e925BcD4017Eb265844FDDAbb448f1707D",
+            "0x73a052500105205d34Daf004eAb301916DA8190f"
+        ],
+        "underlyingCoins": [
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x0000000000085d4780B73119b644AE5ecd22b376"
+        ],
+        "decimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "6",
+            "6",
+            "18"
+        ],
+        "balances": [
+            "6037131385804853716531423",
+            "5170326622082",
+            "4031947316101",
+            "9245436237562224194593676"
+        ],
+        "underlyingBalances": [
+            "6788068690002822660781361",
+            "6419493809643771094030000",
+            "4389905057261866966236914",
+            "10144050135119991882511749"
+        ],
+        "rates": [
+            "1124386443860349422",
+            "1241603147899146329",
+            "1088780361720356405",
+            "1097195402625448022"
+        ],
+        "poolParameters": {
+            "A": "2048",
+            "futureA": "2048",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "0",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "17": {
-            "balances": [
-                "6037131431878312985237474",
-                "5168517059535",
-                "4032799881189",
-                "9245436308120441780238123"
-            ],
-            "underlyingBalances": [
-                "6787788254714470530189392",
-                "6417111013946832236102133",
-                "4390773730805443048802553",
-                "10143972948468406591189921"
-            ],
-            "rates": [
-                "1124339983534631801",
-                "1241576827556058306",
-                "1088765587225444166",
-                "1097187045630151934"
-            ],
-            "poolParameters": {
-                "A": "2048",
-                "futureA": "2048",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "0",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
-                "name": "Curve.fi yDAI/yUSDC/yUSDT/yTUSD",
-                "symbol": "yDAI+yUSDC+yUSDT+yTUSD",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
+            "name": "Curve.fi yDAI/yUSDC/yUSDT/yTUSD",
+            "symbol": "yDAI+yUSDC+yUSDT+yTUSD",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "18": {
+        "coins": [
+            "0x5BC25f649fc4e26069dDF4cF4010F9f706c23831",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x5BC25f649fc4e26069dDF4cF4010F9f706c23831",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "1409322785353317038309798",
+            "358330843489453247276175"
+        ],
+        "underlyingBalances": [
+            "1409322785353317038309798",
+            "145454401041030031837507",
+            "143679155570",
+            "76508950778"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "18": {
-            "balances": [
-                "1409322785353317038309798",
-                "358330843489453247276175"
-            ],
-            "underlyingBalances": [
-                "1409322785353317038309798",
-                "144790965428762343725574",
-                "145963067935",
-                "74886821818"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x3a664Ab939FD8482048609f652f9a0B0677337B9",
-                "name": "Curve.fi DUSD/3Crv",
-                "symbol": "dusd3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x3a664Ab939FD8482048609f652f9a0B0677337B9",
+            "name": "Curve.fi DUSD/3Crv",
+            "symbol": "dusd3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "19": {
+        "coins": [
+            "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "2",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "2",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "1658552599",
+            "16624368246909815008365087"
+        ],
+        "underlyingBalances": [
+            "1658552599",
+            "6748198124650012659219411",
+            "6665837549292",
+            "3549549236508"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "19": {
-            "balances": [
-                "1306167229",
-                "20081344709609205545259161"
-            ],
-            "underlyingBalances": [
-                "1306167229",
-                "8114281369969943393319008",
-                "8179967578381",
-                "4196758695131"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xD2967f45c4f384DEEa880F807Be904762a3DeA07",
-                "name": "Curve.fi GUSD/3Crv",
-                "symbol": "gusd3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xD2967f45c4f384DEEa880F807Be904762a3DeA07",
+            "name": "Curve.fi GUSD/3Crv",
+            "symbol": "gusd3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "20": {
+        "coins": [
+            "0xdF574c24545E5FfEcb9a659c229253D4111d87e1",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0xdF574c24545E5FfEcb9a659c229253D4111d87e1",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "8",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "8",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "16410951488400",
+            "231864553873987748191151"
+        ],
+        "underlyingBalances": [
+            "16410951488400",
+            "94118941807975222841230",
+            "92970236619",
+            "49506521869"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "20": {
-            "balances": [
-                "41248447732955",
-                "582740572887103571882112"
-            ],
-            "underlyingBalances": [
-                "41248447732955",
-                "235468343503947358179456",
-                "237374491686",
-                "121785747002"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858",
-                "name": "Curve.fi HUSD/3Crv",
-                "symbol": "husd3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858",
+            "name": "Curve.fi HUSD/3Crv",
+            "symbol": "husd3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "21": {
+        "coins": [
+            "0x0E2EC54fC0B509F445631Bf4b91AB8168230C752",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x0E2EC54fC0B509F445631Bf4b91AB8168230C752",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "16935962259292449784169",
+            "19449372980730411169602"
+        ],
+        "underlyingBalances": [
+            "16935962259292449784169",
+            "7894929920033525568991",
+            "7798573684",
+            "4152729654"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "5",
+            "futureA": "500",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "500",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "21": {
-            "balances": [
-                "16935962259292449784169",
-                "19449372980730411169602"
-            ],
-            "underlyingBalances": [
-                "16935962259292449784169",
-                "7858920162832501101563",
-                "7922539187",
-                "4064684230"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "5",
-                "futureA": "500",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "500",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x6D65b498cb23deAba52db31c93Da9BFFb340FB8F",
-                "name": "Curve.fi LinkUSD/3Crv",
-                "symbol": "LinkUSD3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x6D65b498cb23deAba52db31c93Da9BFFb340FB8F",
+            "name": "Curve.fi LinkUSD/3Crv",
+            "symbol": "LinkUSD3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "22": {
+        "coins": [
+            "0xe2f2a5C287993345a840Db3B0845fbC70f5935a5",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0xe2f2a5C287993345a840Db3B0845fbC70f5935a5",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "31038264088379706238940891",
+            "32662548694151143472587993"
+        ],
+        "underlyingBalances": [
+            "31038264088379706238940891",
+            "13258449678840068313431408",
+            "13096632624313",
+            "6973938681928"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "22": {
-            "balances": [
-                "31024459469973758184720838",
-                "32676076283553098124151564"
-            ],
-            "underlyingBalances": [
-                "31024459469973758184720838",
-                "13203442342408325781523607",
-                "13310325999248",
-                "6828905596156"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x1AEf73d49Dedc4b1778d0706583995958Dc862e6",
-                "name": "Curve.fi MUSD/3Crv",
-                "symbol": "musd3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x1AEf73d49Dedc4b1778d0706583995958Dc862e6",
+            "name": "Curve.fi MUSD/3Crv",
+            "symbol": "musd3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "23": {
+        "coins": [
+            "0x196f4727526eA7FB1e17b2071B3d8eAA38486988",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x196f4727526eA7FB1e17b2071B3d8eAA38486988",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "157952959275200154736186",
+            "90491417562299000267726"
+        ],
+        "underlyingBalances": [
+            "157952959275200154736186",
+            "36732464369245276060313",
+            "36284151079",
+            "19321260053"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "23": {
-            "balances": [
-                "157952959275200154736186",
-                "90491417562299000267726"
-            ],
-            "underlyingBalances": [
-                "157952959275200154736186",
-                "36564923031104279891370",
-                "36860921043",
-                "18911614186"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xC2Ee6b0334C261ED60C72f6054450b61B8f18E35",
-                "name": "Curve.fi RSV/3Crv",
-                "symbol": "rsv3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xC2Ee6b0334C261ED60C72f6054450b61B8f18E35",
+            "name": "Curve.fi RSV/3Crv",
+            "symbol": "rsv3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "24": {
+        "coins": [
+            "0x1c48f86ae57291F7686349F12601910BD8D470bb",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x1c48f86ae57291F7686349F12601910BD8D470bb",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "331273322291418136377456",
+            "524827005888756904278493"
+        ],
+        "underlyingBalances": [
+            "331273322291418136377456",
+            "213038869465762707038810",
+            "210438767403",
+            "112058351354"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "4000000",
+            "futureAdminFee": "5000000000",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "24": {
-            "balances": [
-                "331273322291418136377456",
-                "524827005888756904278493"
-            ],
-            "underlyingBalances": [
-                "331273322291418136377456",
-                "212067172688014706016832",
-                "213783885218",
-                "109682510422"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "4000000",
-                "futureAdminFee": "5000000000",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x97E2768e8E73511cA874545DC5Ff8067eB19B787",
-                "name": "Curve.fi USDK/3Crv",
-                "symbol": "usdk3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x97E2768e8E73511cA874545DC5Ff8067eB19B787",
+            "name": "Curve.fi USDK/3Crv",
+            "symbol": "usdk3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "25": {
+        "coins": [
+            "0x674C6Ad92Fd080e4004b2312b45f796a192D27a0",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x674C6Ad92Fd080e4004b2312b45f796a192D27a0",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "164415578929725661120854880",
+            "104009870684240948131206181"
+        ],
+        "underlyingBalances": [
+            "164415578929725661120854880",
+            "42219902968460314615139485",
+            "41704616452597",
+            "22207650335538"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "50",
+            "futureA": "5000",
+            "fee": "4000000",
+            "adminFee": "0",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "10000",
+            "initialATime": "1613766029",
+            "futureATime": "1614285782"
         },
-        "25": {
-            "balances": [
-                "164420127780014262667853565",
-                "108638817384376144795935602"
-            ],
-            "underlyingBalances": [
-                "164420127780014262667853565",
-                "43897754094913157111057899",
-                "44253112369145",
-                "22704201739465"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "50",
-                "futureA": "5000",
-                "fee": "4000000",
-                "adminFee": "0",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "10000",
-                "initialATime": "1613766029",
-                "futureATime": "1614285782"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x4f3E8F405CF5aFC05D68142F3783bDfE13811522",
-                "name": "Curve.fi USDN/3Crv",
-                "symbol": "usdn3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x4f3E8F405CF5aFC05D68142F3783bDfE13811522",
+            "name": "Curve.fi USDN/3Crv",
+            "symbol": "usdn3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "26": {
+        "coins": [
+            "0x1456688345527bE1f37E9e627DA0837D6f08C925",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x1456688345527bE1f37E9e627DA0837D6f08C925",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "27152579275871563467952238",
+            "10620251889619175300740484"
+        ],
+        "underlyingBalances": [
+            "27152579275871563467952238",
+            "4310994728967258242833212",
+            "4258379793886",
+            "2267581325584"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "10000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "26": {
-            "balances": [
-                "27141954933226500650474935",
-                "10630842723332937843740474"
-            ],
-            "underlyingBalances": [
-                "27141954933226500650474935",
-                "4295611190606353364441611",
-                "4330384745904",
-                "2221717832191"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "10000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x7Eb40E450b9655f4B3cC4259BCC731c63ff55ae6",
-                "name": "Curve.fi USDP/3Crv",
-                "symbol": "usdp3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x7Eb40E450b9655f4B3cC4259BCC731c63ff55ae6",
+            "name": "Curve.fi USDP/3Crv",
+            "symbol": "usdp3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "27": {
+        "coins": [
+            "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0xa47c8bf37f92aBed4A126BDA807A7b7498661acD",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "9841950409336217061094416",
+            "14272808120311687554766087"
+        ],
+        "underlyingBalances": [
+            "9841950409336217061094416",
+            "5793647948629882290464260",
+            "5722937490867",
+            "3047456265034"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "10000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "27": {
-            "balances": [
-                "9495206144067819989355553",
-                "14611767006434456750575741"
-            ],
-            "underlyingBalances": [
-                "9495206144067819989355553",
-                "5904185726462733752111485",
-                "5951980910835",
-                "3053682964077"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "10000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x94e131324b6054c0D789b190b2dAC504e4361b53",
-                "name": "Curve.fi UST/3Crv",
-                "symbol": "ust3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x94e131324b6054c0D789b190b2dAC504e4361b53",
+            "name": "Curve.fi UST/3Crv",
+            "symbol": "ust3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "28": {
+        "coins": [
+            "0x9BE89D2a4cd102D8Fecc6BF9dA793be995C22541",
+            "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
+        ],
+        "underlyingCoins": [
+            "0x9BE89D2a4cd102D8Fecc6BF9dA793be995C22541",
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "decimals": [
+            "8",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "8",
+            "8",
+            "8",
+            "18"
+        ],
+        "balances": [
+            "99973344252",
+            "996065563222152421545"
+        ],
+        "underlyingBalances": [
+            "99973344252",
+            "35535235949",
+            "32508597227",
+            "325984552221273078584"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1010389596099665824"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "28": {
-            "balances": [
-                "99947524710",
-                "996321984472309579140"
-            ],
-            "underlyingBalances": [
-                "99947524710",
-                "36230541612",
-                "31872134767",
-                "325660873707471305949"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1010387996326545017"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x410e3E86ef427e30B9235497143881f717d93c2A",
-                "name": "Curve.fi bBTC/sbtcCRV",
-                "symbol": "bBTC/sbtcCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x410e3E86ef427e30B9235497143881f717d93c2A",
+            "name": "Curve.fi bBTC/sbtcCRV",
+            "symbol": "bBTC/sbtcCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "29": {
+        "coins": [
+            "0x8064d9Ae6cDf087b1bcd5BDf3531bD5d8C537a68",
+            "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
+        ],
+        "underlyingCoins": [
+            "0x8064d9Ae6cDf087b1bcd5BDf3531bD5d8C537a68",
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "8",
+            "8",
+            "18"
+        ],
+        "balances": [
+            "520960939184088082039",
+            "313920602037610414802"
+        ],
+        "underlyingBalances": [
+            "520960939184088082039",
+            "11199305622",
+            "10245428403",
+            "102737481012020005025"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1010389596099665824"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "29": {
-            "balances": [
-                "520960939184088082039",
-                "313920602037610414802"
-            ],
-            "underlyingBalances": [
-                "520960939184088082039",
-                "11415499820",
-                "10042255305",
-                "102609055232771381980"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1010387996326545017"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x2fE94ea3d5d4a175184081439753DE15AeF9d614",
-                "name": "Curve.fi oBTC/sbtcCRV",
-                "symbol": "oBTC/sbtcCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x2fE94ea3d5d4a175184081439753DE15AeF9d614",
+            "name": "Curve.fi oBTC/sbtcCRV",
+            "symbol": "oBTC/sbtcCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "30": {
+        "coins": [
+            "0x5228a22e72ccC52d415EcFd199F99D0665E7733b",
+            "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
+        ],
+        "underlyingCoins": [
+            "0x5228a22e72ccC52d415EcFd199F99D0665E7733b",
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "8",
+            "8",
+            "18"
+        ],
+        "balances": [
+            "553485379429821508311",
+            "330054453563813320484"
+        ],
+        "underlyingBalances": [
+            "553485379429821508311",
+            "11774890445",
+            "10771989003",
+            "108017641836333893039"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1010389596099665824"
+        ],
+        "poolParameters": {
+            "A": "200",
+            "futureA": "20000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0x0000000000000000000000000000000000000000",
+            "initialA": "20000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "30": {
-            "balances": [
-                "553646293965813299359",
-                "329905013623791167250"
-            ],
-            "underlyingBalances": [
-                "553646293965813299359",
-                "11996761599",
-                "10553593334",
-                "107833769254928067260"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1010387996326545017"
-            ],
-            "poolParameters": {
-                "A": "200",
-                "futureA": "20000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0x0000000000000000000000000000000000000000",
-                "initialA": "20000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0xDE5331AC4B3630f94853Ff322B66407e0D6331E8",
-                "name": "Curve.fi pBTC/sbtcCRV",
-                "symbol": "pBTC/sbtcCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0xDE5331AC4B3630f94853Ff322B66407e0D6331E8",
+            "name": "Curve.fi pBTC/sbtcCRV",
+            "symbol": "pBTC/sbtcCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "31": {
+        "coins": [
+            "0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa",
+            "0x075b1bb99792c9E1041bA13afEf80C91a1e70fB3"
+        ],
+        "underlyingCoins": [
+            "0x8dAEBADE922dF735c38C80C7eBD708Af50815fAa",
+            "0xEB4C2781e4ebA804CE9a9803C67d0893436bB27D",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "8",
+            "8",
+            "18"
+        ],
+        "balances": [
+            "320120673360026730125",
+            "1123945960492031581200"
+        ],
+        "underlyingBalances": [
+            "320120673360026730125",
+            "40097445766",
+            "36682230451",
+            "367836249118661563379"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1010389596099665824"
+        ],
+        "poolParameters": {
+            "A": "150",
+            "futureA": "15000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "15000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "31": {
-            "balances": [
-                "320120673668500357427",
-                "1123932029473000122323"
-            ],
-            "underlyingBalances": [
-                "320120673668500357427",
-                "40870990300",
-                "35954353783",
-                "367371886207898178317"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1010387996326545017"
-            ],
-            "poolParameters": {
-                "A": "150",
-                "futureA": "15000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "15000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x64eda51d3Ad40D56b9dFc5554E06F94e1Dd786Fd",
-                "name": "Curve.fi tBTC/sbtcCrv",
-                "symbol": "tbtc/sbtcCrv",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x64eda51d3Ad40D56b9dFc5554E06F94e1Dd786Fd",
+            "name": "Curve.fi tBTC/sbtcCrv",
+            "symbol": "tbtc/sbtcCrv",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "32": {
+        "coins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "0x9559Aaa82d9649C7A7b220E7c461d2E74c9a3593"
+        ],
+        "underlyingCoins": [
+            "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18"
+        ],
+        "balances": [
+            "1858160217063748382322",
+            "6259741523318153126797"
+        ],
+        "underlyingBalances": [
+            "1858160217063748382322",
+            "6259741523318153126797"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1017359153330983384"
+        ],
+        "poolParameters": {
+            "A": "10",
+            "futureA": "1000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "1000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "32": {
-            "balances": [
-                "1858160217063748382322",
-                "6259741523318153126797"
-            ],
-            "underlyingBalances": [
-                "1858160217063748382322",
-                "6259741523318153126797"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1017326323263672901"
-            ],
-            "poolParameters": {
-                "A": "10",
-                "futureA": "1000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "1000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x53a901d48795C58f485cBB38df08FA96a24669D5",
-                "name": "Curve.fi ETH/rETH",
-                "symbol": "rCRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x53a901d48795C58f485cBB38df08FA96a24669D5",
+            "name": "Curve.fi ETH/rETH",
+            "symbol": "rCRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "33": {
+        "coins": [
+            "0x03ab458634910AaD20eF5f1C8ee96F1D6ac54919",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x03ab458634910AaD20eF5f1C8ee96F1D6ac54919",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "9494302571177502268641102",
+            "37228724979613194540894996"
+        ],
+        "underlyingBalances": [
+            "9494302571177502268641102",
+            "15111961450759826415609179",
+            "14927522609921",
+            "7948885056256"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {
+            "A": "100",
+            "futureA": "10000",
+            "fee": "4000000",
+            "adminFee": "5000000000",
+            "futureFee": "0",
+            "futureAdminFee": "0",
+            "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
+            "initialA": "10000",
+            "initialATime": "0",
+            "futureATime": "0"
         },
-        "33": {
-            "balances": [
-                "9678304668677214459974566",
-                "36717817156660859798445232"
-            ],
-            "underlyingBalances": [
-                "9678304668677214459974566",
-                "14836591075381924988715581",
-                "14956695292755",
-                "7673580661395"
-            ],
-            "rates": [
-                "1000000000000000000",
-                "1020380636637860552"
-            ],
-            "poolParameters": {
-                "A": "100",
-                "futureA": "10000",
-                "fee": "4000000",
-                "adminFee": "5000000000",
-                "futureFee": "0",
-                "futureAdminFee": "0",
-                "futureOwner": "0xeCb456EA5365865EbAb8a2661B0c503410e9B347",
-                "initialA": "10000",
-                "initialATime": "0",
-                "futureATime": "0"
-            },
-            "liquidityProviderDetails": {
-                "address": "0x6BA5b4e438FA0aAf7C1bD179285aF65d13bD3D90",
-                "name": "RAI3CRV",
-                "symbol": "RAI3CRV",
-                "decimals": "18",
-                "userBalance": "0"
-            }
+        "liquidityProviderDetails": {
+            "address": "0x6BA5b4e438FA0aAf7C1bD179285aF65d13bD3D90",
+            "name": "RAI3CRV",
+            "symbol": "RAI3CRV",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "34": {
+        "coins": [
+            "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "142049736244236489094641100",
+            "84632958573457811203568399"
+        ],
+        "underlyingBalances": [
+            "142049736244236489094641100",
+            "34354386515418510524379005",
+            "33935097249278",
+            "18070392151215"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0x43b4FdFD4Ff969587185cDB6f0BD875c5Fc83f8c",
+            "name": "Curve.fi Factory USD Metapool: Alchemix USD",
+            "symbol": "alUSD3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "35": {
+        "coins": [
+            "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "1526560934601521543386471687",
+            "1492310272070051318182973127"
+        ],
+        "underlyingBalances": [
+            "1526560934601521543386471687",
+            "605761688493094235238896814",
+            "598368473256669",
+            "318630380907539"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0xd632f22692FaC7611d2AA1C0D552930D43CAEd3B",
+            "name": "Curve.fi Factory USD Metapool: Frax",
+            "symbol": "FRAX3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "36": {
+        "coins": [
+            "0x0000000000085d4780B73119b644AE5ecd22b376",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x0000000000085d4780B73119b644AE5ecd22b376",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "46506591654118712975726372",
+            "34983052577833991018370951"
+        ],
+        "underlyingBalances": [
+            "46506591654118712975726372",
+            "14200393440162995179767906",
+            "14027080127123",
+            "7469400684833"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+            "name": "Curve.fi Factory USD Metapool: TrueUSD",
+            "symbol": "TUSD3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "37": {
+        "coins": [
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        ],
+        "underlyingCoins": [
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+        ],
+        "decimals": [
+            "6",
+            "8",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "6",
+            "8",
+            "18"
+        ],
+        "balances": [
+            "479310829283",
+            "1250986977",
+            "185169188205191766084"
+        ],
+        "underlyingBalances": [
+            "479310829283",
+            "1250986977",
+            "185169188205191766084"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0xcA3d75aC011BF5aD07a98d02f18225F9bD9A6BDF",
+            "name": "Curve.fi USD-BTC-ETH",
+            "symbol": "crvTricrypto",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "38": {
+        "coins": [
+            "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "34688174637801152992286561",
+            "11015310608366974897941516"
+        ],
+        "underlyingBalances": [
+            "34688174637801152992286561",
+            "4471357785498810324506303",
+            "4416785647420",
+            "2351932222573"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0x4807862AA8b2bF68830e4C8dc86D0e9A998e085a",
+            "name": "Curve.fi Factory USD Metapool: Binance USD",
+            "symbol": "BUSD3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "39": {
+        "coins": [
+            "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "16699472387538109505350613",
+            "108346482700803738716232307"
+        ],
+        "underlyingBalances": [
+            "16699472387538109505350613",
+            "43980229535031857434480159",
+            "43443458541955",
+            "23133581332963"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0xEd279fDD11cA84bEef15AF5D39BB4d4bEE23F0cA",
+            "name": "Curve.fi Factory USD Metapool: Liquity",
+            "symbol": "LUSD3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "40": {
+        "coins": [
+            "0xC581b735A1688071A1746c968e0798D642EDE491",
+            "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
+        ],
+        "underlyingCoins": [
+            "0xC581b735A1688071A1746c968e0798D642EDE491",
+            "0xD71eCFF9342A5Ced620049e616c5035F1dB98620"
+        ],
+        "decimals": [
+            "6",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "6",
+            "18"
+        ],
+        "balances": [
+            "224707236385",
+            "170873507293868370533588"
+        ],
+        "underlyingBalances": [
+            "224707236385",
+            "170873507293868370533588"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1000000000000000000"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0xFD5dB7463a3aB53fD211b4af195c5BCCC1A03890",
+            "name": "Curve.fi Factory Plain Pool: Euro Tether",
+            "symbol": "EURT-f",
+            "decimals": "18",
+            "userBalance": "0"
+        }
+    },
+    "41": {
+        "coins": [
+            "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+            "0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490"
+        ],
+        "underlyingCoins": [
+            "0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3",
+            "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "decimals": [
+            "18",
+            "18"
+        ],
+        "underlyingDecimals": [
+            "18",
+            "18",
+            "6",
+            "6"
+        ],
+        "balances": [
+            "763650851367387966788044948",
+            "235560052177684446620188027"
+        ],
+        "underlyingBalances": [
+            "763650851367387966788044948",
+            "95619026163198098840987348",
+            "94452012707988",
+            "50295565578236"
+        ],
+        "rates": [
+            "1000000000000000000",
+            "1020388881482491470"
+        ],
+        "poolParameters": {},
+        "liquidityProviderDetails": {
+            "address": "0x5a6A4D54456819380173272A5E8E9B9904BdF41B",
+            "name": "Curve.fi Factory USD Metapool: Magic Internet Money 3Pool",
+            "symbol": "MIM-3LP3CRV-f",
+            "decimals": "18",
+            "userBalance": "0"
         }
     }
 }

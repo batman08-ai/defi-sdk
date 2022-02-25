@@ -93,6 +93,62 @@ const getPoolAddresses = async () => {
     return Promise.all(poolAddressPromises)
 }
 
+const getNonReadablePoolsDetails = async (poolAddresses) => {
+    let poolCoinsPromises = []
+    let lpTokenPromises = []
+    let ratesPromises = []
+    let balancesPromises = []
+    let underlyingBalancesPromises = []
+    let liquidityProviderDetailsPromises = []
+
+    poolAddresses.forEach((poolAddress) => {
+        poolCoinsPromises.push(getPoolCoins(poolAddress))
+        lpTokenPromises.push(curvePoolRegistry.getLPToken(poolAddress))
+        ratesPromises.push(curvePoolRegistry.rates(poolAddress))
+        balancesPromises.push(curvePoolRegistry.balances(poolAddress))
+        underlyingBalancesPromises.push(curvePoolRegistry.underlyingBalances(poolAddress))
+    })
+
+    const allPromises = [poolCoinsPromises, lpTokenPromises, ratesPromises, balancesPromises, underlyingBalancesPromises]
+
+
+    let poolCoinsResult = await Promise.all(allPromises[0]);
+    let lpTokenResult = await Promise.all(allPromises[1]);
+    let ratesResult = await Promise.all(allPromises[2]);
+    let balancesResult = await Promise.all(allPromises[3])
+    let underlyingBalancesResult = await Promise.all(allPromises[4])
+
+    let rates = []
+    let balances = []
+    let underlyingBalances = []
+
+    ratesResult.forEach((rate, index) => {
+        rates.push(filterArray(rate, 0))
+        balances.push(filterArray(balancesResult[index], 0))
+        underlyingBalances.push(filterArray(underlyingBalancesResult[index], 0))
+    })
+
+    lpTokenResult.forEach((lpToken) => {
+        liquidityProviderDetailsPromises.push(getLPTokenDetails(lpToken, userAddress))
+    })
+
+    let liquidityProviderDetails = await Promise.all(liquidityProviderDetailsPromises)
+
+    let response = []
+
+    poolCoinsResult.forEach((poolCoin, index) => {
+        response.push({
+            poolCoin,
+            balances: balances[index],
+            underlyingBalances: underlyingBalances[index],
+            rates: rates[index],
+            poolParameters: {},
+            liquidityProviderDetails: liquidityProviderDetails[index].liquidityProviderDetails
+        })
+    })
+    return response;
+}
+
 const curveInvestmentDetails = async () => {
     let poolCoinsPromises = []
     let poolInfoPromises = []
@@ -101,19 +157,34 @@ const curveInvestmentDetails = async () => {
 
     const poolAddresses = await getPoolAddresses();
     poolAddresses.forEach((poolAddress) => {
-        poolCoinsPromises.push(getPoolCoins(poolAddress))
         if ((nonReadablePoolAddresses.findIndex((nonReadPoolAddr) => poolAddress == nonReadPoolAddr)) == -1) {
+            poolCoinsPromises.push(getPoolCoins(poolAddress))
             poolInfoPromises.push(getPoolInfo(poolAddress))
         }
     })
     const poolCoinsResult = await Promise.all(poolCoinsPromises)
     const poolInfoResult = await Promise.all(poolInfoPromises)
+    const nonReadablePoolsDetails = await getNonReadablePoolsDetails(nonReadablePoolAddresses);
 
-
-    data += JSON.stringify({
-        poolCoins: { ...poolCoinsResult },
-        poolMetadata: { ...poolInfoResult }
+    let response = []
+    poolCoinsResult.forEach((poolCoin, index) => {
+        const { balances, underlyingBalances, rates, poolParameters, liquidityProviderDetails } = poolInfoResult[index]
+        const { coins, underlyingCoins, decimals, underlyingDecimals } = poolCoin;
+        response.push({
+            coins, underlyingCoins, decimals, underlyingDecimals, balances, underlyingBalances,
+            rates, poolParameters, liquidityProviderDetails
+        })
     })
+
+    nonReadablePoolsDetails.forEach((nonReadPool) => {
+        const { coins, underlyingCoins, decimals, underlyingDecimals } = nonReadPool.poolCoin;
+        const { balances, underlyingBalances, rates, poolParameters, liquidityProviderDetails } = nonReadPool;
+        response.push({
+            coins, underlyingCoins, decimals, underlyingDecimals, balances, underlyingBalances,
+            rates, poolParameters, liquidityProviderDetails
+        })
+    })
+    data += JSON.stringify({ ...response })
 }
 
 const writeDataToFile = () => {
